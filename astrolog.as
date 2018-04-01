@@ -1,11 +1,13 @@
-@0309  ; Astrolog (6.00) default settings file astrolog.as
+@0309  ; Astrolog (6.10) default settings file astrolog.as
 
 -z 8:00W                ; Default time zone     [hours W or E of GMT   ]
 -z0 Autodetect          ; Default Daylight time [0 standard, 1 daylight]
--zl 122W19:59 47N36:35  ; Default longitude and latitude
+-zl 122W19:59 47N36:35  ; Default location      [longitude and latitude]
+-zv 161ft               ; Default elevation     [in feet or meters     ]
+-zj "Current moment now" "Seattle, WA" ; Default name and location
 
 -Yz 0   ; Time minute addition to be used when "now" charts are off.
-;-n     ; Comment out this line to not start with chart for "now".
+;-n      ; Comment out this line to not start with chart for "now".
 
 _s      ; Zodiac selection          ["_s" is tropical, "=s" is sidereal]
 :s 0    ; Zodiac offset value       [Change "0" to desired ayanamsa    ]
@@ -22,6 +24,7 @@ _v7     ; Show esoteric rulerships  ["=v7" shows them, "_v7" hides them]
 -YQ 24  ; Text screen scroll limit  [Change "24" or set to "0" for none]
 _Yd     ; European date format      ["_Yd" is MDY, "=Yd" is DMY        ]
 _Yt     ; European time format      ["_Yt" is AM/PM, "=Yt" is 24 hour  ]
+_Yv     ; European length units     ["_Yv" is imperial, "=Yv" is metric]
 _Yr     ; Show rounded positions    ["=Yr" rounds, "_Yr" doesn't       ]
 =YC     ; Smart cusp displays       ["=YC" is smart, "_YC" is normal   ]
 =Y8     ; Clip text to end of line  ["=Y8" clips, "_Y8" doesn't clip   ]
@@ -73,6 +76,7 @@ _Yr     ; Show rounded positions    ["=Yr" rounds, "_Yr" doesn't       ]
 -Yj 11 21   5 5 5 5 5 5 5 5 5 5 5                ; Minor planets
 -Yj 22 33   20 10 10 10 10 10 10 10 10 15 10 10  ; Cusp objects
 -Yj 34 42   5 3 3 3 3 3 3 3 3                    ; Uranians
+-Yj 43 43   2                                    ; Fixed stars
 
 -YjC 1 12   20 0 0 10 0 0 5 0 0 15 0 0  ; Houses
 
@@ -85,6 +89,7 @@ _Yr     ; Show rounded positions    ["=Yr" rounds, "_Yr" doesn't       ]
 -YjT 0 10   10 10 4 8 9 20 30 35 40 45 50  ; Planets
 -YjT 11 21  30 15 15 15 15 30 1 1 1 1 1    ; Minor planets
 -YjT 34 42  2 50 50 50 50 50 50 50 50      ; Uranians
+-YjT 43 43  80                             ; Fixed stars
 
 -Yj0 20 10 15 5  ; In ruling sign, exalted sign, ruling house, exalted house
 -Yj7 10 10 10 5 5 5  ; Esoteric, Hierarchical, Ray ruling - sign, house
@@ -118,13 +123,14 @@ _Yr     ; Show rounded positions    ["=Yr" rounds, "_Yr" doesn't       ]
 
 _X              ; Graphics chart flag ["_X" is text, "=X" is graphics]
 :Xw 480 480     ; Default X and Y resolution
+:Xs 200         ; Character scale [100-400]
+:XS 100         ; Graphics text scale [100-400]
 :Xbb            ; Bitmap file type
 :YXG 1111       ; Glyph selections [Capricorn, Uranus, Pluto, Lilith]
 :YXg 20         ; Aspect grid cells
 :YX7 600        ; Esoteric ray column influence width
-:YXf 0          ; Use actual fonts
+:YXf 2          ; Use actual fonts
 :YXp 0          ; PostScript paper orientation
 :YXp0 8.5 11.0  ; PostScript paper X and Y inch sizes
-:YX -1 16       ; PC hi-res and lo-res graphics modes
 
 ; astrolog.as
