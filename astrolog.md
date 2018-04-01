@@ -12,9 +12,9 @@ A A S S T R R O O L O O G G
 
 A A SSSSS T R R OOOOO LLLLLLL OOOOO GGGGG
 
-\*\* VERSION 6.20 \*\*
+\*\* VERSION 6.30 \*\*
 
-Documentation for Astrolog version 6.20 (March 2017):
+Documentation for Astrolog version 6.30 (October 2017):
 
 This file contains a complete list of all the features available in
 Astrolog, and documentation on how to use each option. The file is
@@ -62,7 +62,7 @@ the Macintosh.
 ASTROLOG SUMMARY {#astrolog-summary .Section}
 ================
 
-Astrolog 6.20 is a many featured and customizable astrology chart
+Astrolog 6.30 is a many featured and customizable astrology chart
 calculation program for Windows, Unix, and Mac. It is 100% freeware and
 requires no registration fee. :) The complete source code is available.
 Astrolog features: wheels, aspects, midpoints, relationship charts,
@@ -118,9 +118,9 @@ Position of Vulcan
 
 Positions of the eight Uranian planets.
 
-Positions of over 40 fixed stars.
+Positions of 47 fixed stars.
 
-Positions of over 170 Arabic parts and their formulas.
+Positions of 177 Arabic parts and their formulas.
 
 Option to use any or all of accurate 10800 year ephemeris.
 
@@ -204,7 +204,7 @@ Times of lunar phases and season changes.
 
 Times of exact aspects in a progressed chart.
 
-Times of exact transit hits.
+Times of exact transit events.
 
 Times of transits to house cusps.
 
@@ -349,7 +349,7 @@ Easy to use menu and dialog interface in the Windows version.
 LIST OF COMMAND SWITCHES {#list-of-command-switches .Section}
 ========================
 
-Astrolog (version 6.20) command switches:
+Astrolog (version 6.30) command switches:
 
 **-H:** Display this help list.
 
@@ -398,7 +398,7 @@ Switches which determine the type of chart to display:
 
 **-g0:** Like -g but flag aspect configurations (e.g. Yod\'s) too.
 
-**-g0:** For comparison charts, show midpoints instead of aspects.
+**-gm:** For comparison charts, show midpoints instead of aspects.
 
 **-ga:** Like -g but indicate applying instead of difference orbs.
 
@@ -460,6 +460,12 @@ Switches which determine the type of chart to display:
 
 **-dp\[y\]n:** Search for progressed aspects in current month/year.
 
+**-B:** Like -d but graph all aspects occurring in a day.
+
+**-B\[m,y,Y\]:** Like -B but for entire month, year, or five years.
+
+**-B0:** Like -B but don\'t restrict fast moving objects from graph.
+
 **-D:** Like -d but display aspects by influence instead of time.
 
 **-E:** Display planetary ephemeris for given month.
@@ -489,10 +495,18 @@ years.
 **-T \<month\> \<day\> \<year\>:** Display transits ordered by
 influence.
 
-**-Tp \<month\> \<day\> \<year\>:** Print progressions instead of
+**-Tt \<month\> \<day\> \<year\> \<time\>:** Like -T but specify time
+too.
+
+**-T\[t\]p \<month\> \<day\> \<year\>:** Print progressions instead of
 transits.
 
 **-T\[p\]n:** Display transits ordered by influence for current date.
+
+**-V\[\...\]:** Like -t but graph all transits occurring during period.
+
+**-V0\[\...\]:** Like \_V but don\'t restrict fast moving objects from
+graph.
 
 **-P \[\<parts\>\]:** Display list of Arabic parts and their positions.
 
@@ -572,6 +586,8 @@ displays.
 
 **-RA \[\<asp1\> ..\]:** Restrict specific aspects from displays.
 
+**-RO \<obj\>:** Require object to be present in aspects.
+
 **-C:** Include angular and non-angular house cusps in charts.
 
 **-u:** Include transneptunian/Uranian bodies in charts.
@@ -581,6 +597,8 @@ displays.
 **-U\[z,l,n,b\]:** Order by azimuth, altitude, name, or brightness.
 
 **-A \<0-18\>:** Specify the number of aspects to use in charts.
+
+**-A3:** Aspect orbs consider latitude as well as zodiac position.
 
 **-Ao \<aspect\> \<orb\>:** Specify maximum orb for an aspect.
 
@@ -594,7 +612,9 @@ Switches which affect how a chart is computed:
 
 **-b:** Use ephemeris files for more accurate location computations.
 
-**-b0:** Like -b but display locations to the nearest second too.
+**-b0:** Display locations and times to the nearest second.
+
+**-bs:** Use less accurate Moshier formulas instead of Swiss Ephemeris.
 
 **-bp:** Use less accurate Placalc files instead of Swiss Ephemeris.
 
@@ -602,11 +622,13 @@ Switches which affect how a chart is computed:
 
 **-bm:** Use inaccurate Matrix formulas when ephemeris unavailable.
 
+**-bU:** Use inaccurate Matrix formulas for fixed stars only.
+
 **-c \<value\>:** Select a different default system of houses. 0 =
-Placidus, 1 = Koch, 2 = Equal, 3 = Campanus, 4 = , 5 = Regiomontanus, 6
-= Porphyry, 7 = Morinus, 8 = Topocentric, 9 = Alcabitius, 10 =
-Krusinski, 11 = Equal MC, 12 = Pullen S-Ratio, 13 = Pullen S-Delta, 14 =
-Whole, 15 = Vedic, 16 = Sripati, 17 = None.
+Placidus, 1 = Koch, 2 = Equal, 3 = Campanus, 4 = Meridian, 5 =
+Regiomontanus, 6 = Porphyry, 7 = Morinus, 8 = Topocentric, 9 =
+Alcabitius, 10 = Krusinski, 11 = Equal MC, 12 = Pullen S-Ratio, 13 =
+Pullen S-Delta, 14 = Whole, 15 = Vedic, 16 = Sripati, 17 = None.
 
 **-c3:** Place in houses using latitude as well as zodiac position.
 
@@ -623,6 +645,9 @@ degrees.
 date.
 
 **-p0 \<month\> \<day\> \<year\>:** Cast solar arc chart for date.
+
+**-p\[0\]t \<month\> \<day\> \<year\> \<time\>:** Like -p but specify
+time too.
 
 **-p\[0\]n:** Cast progressed chart based on current date now.
 
@@ -718,6 +743,8 @@ graphic.
 
 **-XS \<100,200,300,400\>:** Change size of graphics chart text by %.
 
+**-XQ:** Ensure square charts remain so regardless of bitmap size.
+
 **-Xi:** Create chart graphic in slightly modified form.
 
 **-Xt:** Inhibit display of chart info at bottom of graphic.
@@ -732,22 +759,27 @@ graphic.
 
 **-X2 \<object\>:** Rotate wheel charts so object is at top edge.
 
+**-XX\[0\] \[\<degrees\> \[\<degrees\>\]\]:** Display chart sphere
+instead of wheel.
+
 **-Xd \<name\>, -di\[..\] \<name\>:** Open X window on specified
 display.
 
-**-XW:** Simply create an image of the world map.
+**-XW:** Simply display an image of the world map.
 
 **-XW0:** Like -XW but do a non-rectangular Mollewide projection.
 
-**-XG \[\<degrees\> \[\<degrees\>\]\]:** Display image of world as a
-globe.
+**-XG\[0\] \[\<degrees\> \[\<degrees\>\]\]:** Display image of world as
+a globe.
 
-**-XP \[\<degrees\>\]:** Like -XG but create globe from polar
+**-XP\[0\] \[\<degrees\>\]:** Like -XG but create globe from polar
 projection.
 
 **-XF:** Display maps as constellations on the celestial sphere.
 
 **-Xn \[\<mode\>\]:** Start up chart or globe display in animation mode.
+
+**-XN:** Map animates chart time instead of rotating map itself.
 
 **-XM\[2-4\]\[0\] \<strings\>:** Define macro(s) to run when chart
 drawn.
@@ -764,6 +796,8 @@ drawn.
 
 **-Wo:** Continually autosave graphics screen to bitmap file.
 
+**-Wo0:** Continually autosave graphics screen to numbered files.
+
 **-WSg:** Setup Windows program group, for current user only.
 
 **-WSG:** Setup Windows program group, for all users.
@@ -776,7 +810,7 @@ drawn.
 
 \--
 
-Astrolog (version 6.20) obscure command switches:
+Astrolog (version 6.30) obscure command switches:
 
 **-Y:** Display this help list.
 
@@ -802,6 +836,9 @@ Astrolog (version 6.20) obscure command switches:
 
 **-YQ \<rows\>:** Pause text scrolling after a page full has printed.
 
+**-Yq\[0-9\] \<strings\>:** Define command lines to run and show in
+sequence.
+
 **-Yo:** Output chart info and position files in old style format.
 
 **-Yc:** Angular cusp objects are house positions instead of angles.
@@ -822,9 +859,27 @@ position.
 **-Ye \<obj\> \<index\>:** Change orbit of Uranian to seorbel.txt
 object.
 
+**-Yeb \<obj\> \<index\>:** Change orbit of Uranian to external
+ephemeris.
+
+**-YeO \<obj1\> \<obj2\>:** Change orbit of Uranian to internal planet.
+
+**-Ye\[bO\]n \<obj\> \<index\>:** Change Uranian to North Node of
+object.
+
+**-Ye\[bO\]s \<obj\> \<index\>:** Change Uranian to South Node of
+object.
+
+**-Ye\[bO\]a \<obj\> \<index\>:** Change Uranian to apihelion of object.
+
+**-Ye\[bO\]p \<obj\> \<index\>:** Change Uranian to perihelion of
+object.
+
 **-YE \<obj\> \<semi-major axis\> \<eccentricity (3)\> \<inclination
 (3)\> \<perihelion (3)\> \<ascending node (3)\> \<time offset (3)\>:**
 Change orbit of object to be the given elements.
+
+**-YU \<obj\> \<name\>:** Change position of star to sefstars.txt entry.
 
 **-YR \<obj1\> \<obj2\> \<flag1\>..\<flag2\>:** Set restrictions for
 object range.
@@ -841,7 +896,8 @@ chart.
 **-YR7 \<ruler\> \<exalt\> \<eso\> \<hier\> \<ray\>:** Set rulership
 restrictions.
 
-**- \<asp1\> \<asp2\> \<orb1\>..\<orb2\>:** Set aspect orbs for range.
+**-YAo \<asp1\> \<asp2\> \<orb1\>..\<orb2\>:** Set aspect orbs for
+range.
 
 **-YAm \<obj1\> \<obj2\> \<orb1\>..\<orb2\>:** Set max planet orbs for
 range.
@@ -912,12 +968,23 @@ colors.
 **-Yk \<0..8\> \<0..8\> \<col1\>..\<col2\>:** Customize \'general\'
 colors.
 
+**-YD \<obj\> \<name\>:** Customize display name of object.
+
 **-YXG \<0-2\>\<0-2\>\<0-3\>\<0-2\>:** Select among different graphic
 glyphs for Capricorn, Uranus, Pluto, and Lilith.
+
+**-YXD \<obj\> \<string1\> \<string2\>:** Customize glyphs for planet.
+
+**-YXv \<type\> \[\<size\> \[\<lines\>\]\]:** Set wheel chart
+decoration.
 
 **-YXg \<cells\>:** Set number of cells for graphic aspect grid.
 
 **-YX7 \<inf\>:** Set influence width for graphic esoteric ephemeris.
+
+**-YXk:** Use more color for sign boundaries in graphics charts.
+
+**-YXk0:** Use more color for house boundaries in graphics charts too.
 
 **-YXf \<val\>:** Set usage of actual system fonts in graphic file.
 
@@ -925,13 +992,15 @@ glyphs for Capricorn, Uranus, Pluto, and Lilith.
 
 **-YXp0 \<hor\> \<ver\>:** Set paper size for PostScript files.
 
+**-YB:** Make a beep sound at the time this switch is processed.
+
 **-0\[o,i,q,X\]:** Disallow file output, input, exiting, and graphics.
 
 **-;:** Ignore rest of command line and treat it as a comment.
 
 \--
 
-Astrolog graphics screen key press options (version 6.20):
+Astrolog graphics screen key press options (version 6.30):
 
 **Press \'H\' or \'?\'** to display this list of key options.
 
@@ -993,10 +1062,10 @@ years\*10, \*: years\*100, (: years\*1000.
 **Press \'1\'-\'9\'** to determine section of chart to show if clipped.
 
 **Press
-\'V\',\'A\',\'Z\',\'S\',\'M\',\'K\',\'J\',\'L\',\'E\',\'W\',\'G\',\'P\'**
+\'V\',\'A\',\'Z\',\'S\',\'M\',\'K\',\'J\',\'L\',\'E\',\'X\',\'W\',\'G\',\'P\'**
 to switch to normal (-v), grid (-g), local (-Z), space (-S), sector
 (-l), calendar (-K), dispositor (-j), astro-graph (-L), ephemeris (-E),
-world map (-XW), globe (-XG), and polar (-XP) modes.
+sphere (-XX), world map (-XW), globe (-XG), polar (-XP) modes.
 
 **Press \'Y\'** to switch to biorhythm relation chart mode.
 
@@ -1108,7 +1177,7 @@ characters, so they need longer substrings to be unambiguous. Aspects
 should be based on their formal abbreviations, e.g. "ssx" instead of
 "sem" for Semisextile.
 
-Astrolog (version 6.20) command switches:
+Astrolog (version 6.30) command switches:
 
 **-H:** Display this help list.
 
@@ -1144,18 +1213,18 @@ in the sign.
 **-HO:** Display available planets and other celestial objects.
 
 Similar to the -HA option below, the -HO option will list the planets
-and other celestial objects used by the program, and their numbers as
-recognized by the -R restrictions (mentioned elsewhere). This list will
-also show the zodiac signs that planets rule, have their detriment in,
-are exalted in, and have their fall i.e. are debilitated in. Stars are
-printed in the list along with their azimuth, altitude, and brightness
-values. Note that this list shows only those items that aren\'t
-restricted when its displayed; if you want to show all 90 objects
-regardless of restriction status, just use the -R1 switch to activate
-them all and combine it with -HO. This switch will also include esoteric
-astrology information, in that for each planet, listed will be the signs
-the planet esoterically rules, the signs the planet Hierarchically
-rules, and the Ray associated with the planet.
+and other celestial objects used by the program, and their index numbers
+as recognized by the -R switch restrictions. This list will also show
+the zodiac signs that planets rule, have their detriment in, are exalted
+in, and have their fall i.e. are debilitated in. Stars are printed in
+the list along with their azimuth, altitude, and brightness values. Note
+that this list shows only those items that aren\'t restricted when it's
+displayed. If you want to show all 90 objects regardless of restriction
+status, then use the -R1 switch to activate them all and combine it with
+-HO. This switch will also include esoteric astrology information, in
+that for each planet, listed will be the signs the planet esoterically
+rules, the signs the planet Hierarchically rules, and the Ray associated
+with the planet.
 
 Concerning objects the program includes, Astrolog supports the position
 of Earth in the same way it does other planets. Earth is object number
@@ -1303,30 +1372,31 @@ the command line to assign to it. (The command string probably needs to
 be in quotes to ensure it's treated as one parameter to -M0, instead of
 many items which will get processed right away.) There are 48 macro
 slots available to define or run. Macros may do anything and even call
-or define other macros. It's possible to get in a infinite loop if you
-make a macro (or command file) call or load itself; such cases aren\'t
-detected and will make the program terminate with some unusual error.
+or define other macros. It's possible to get in an infinite loop if you
+make a macro (or command file) call or load itself, which will make the
+program terminate with some unusual error.
 
-Macros are very powerful and their uses are nearly endless. A bunch can
-be defined in the astrolog.as config file for your most common switch
-sequences, hopefully preventing things such as batch files that would
-have to be created otherwise. Suppose you often want to see the transits
-of outer planets only to the house cusps in your natal chart for the
-current month. The command line for this is "-i yourchart -tn -RT0 6 7 8
-9 10 -R0 -RC -C". You can assign this to the tenth macro slot with: -M0
-10 "-i yourchart -tn -RT0 jup sat ura nep plu -R0 -RC -C". That line can
-be put in your astrolog.as and you can do this month's transits by just
-typing "astrolog -M 10". Here's another example: Suppose you want a
-feature to bring up the chart of the spouse of whoever's chart you are
-viewing at any time. You can define a special macro, say in slot 5, in
-each of your chart info files which does a -i on the file of their
-spouse, or does nothing if they're unmarried. Now when in graphics mode,
-you can press \'F5\' anytime and Astrolog will bring up the spouse's
-chart! You could define a bunch of macros to set various color sets or
-aspect orbs and switch among them quickly using the function keys. You
-could even make a simple chart database by having each chart file load
-the next one in sequence in some macro, and then cycle through your
-charts by running that macro in a -Q loop or from the graphics screen.
+Macros are powerful and their uses are nearly endless. They can be
+defined in the astrolog.as config file for your most common switch
+sequences, and are designed to prevent things such as batch files that
+would have to be created otherwise. Suppose you often want to see the
+transits of outer planets only to the house cusps in your natal chart
+for the current month. The command line for this is "-i yourchart -tn
+-RT0 6 7 8 9 10 -R0 -RC -C". You can assign this to the tenth macro slot
+with: -M0 10 "-i yourchart -tn -RT0 jup sat ura nep plu -R0 -RC -C".
+That line can be put in your astrolog.as and you can do this month's
+transits by just typing "astrolog -M 10". Here's another example:
+Suppose you want a feature to bring up the chart of the spouse of
+whoever's chart you are viewing at any time. You can define a special
+macro, say in slot 5, in each of your chart info files which does a -i
+on the file of their spouse, or does nothing if they're unmarried. Now
+when in graphics mode, you can press \'F5\' anytime and Astrolog will
+bring up the spouse's chart! You could define a bunch of macros to set
+various color sets or aspect orbs and switch among them quickly using
+the function keys. You could even make a simple chart database by having
+each chart file load the next one in sequence in some macro, and then
+cycle through your charts by running that macro in a -Q switch loop or
+from the graphics screen.
 
 **-M\[2-4\]\[0\] \<strings\>:** Define macro(s) to run when chart
 calculated.
@@ -1367,34 +1437,33 @@ displayed along with some of the other chart types described below.
 
 **-v0:** Like -v but express velocities relative to average speed.
 
-This switch is just like -v except that it modifies the planet
-velocities fields slightly. (See later for a description of these
-velocity fields.) The -v switch normally expresses velocity values as an
+This switch is like -v except that it modifies planet velocities
+slightly. The -v switch chart normally expresses velocity values as an
 absolute quantity in degrees per day that the object appears to have
-moved through the zodiac. This means that outer planets will generally
-always have lower values, e.g. although a velocity of 0.010 degrees/day
-for fast moving Mercury means it's about to turn retrograde, the same
-velocity value is normal for slow moving Pluto. As it is useful to know
-when a planet is about to change direction, the -v0 switch will divide
-the actual velocity values by how fast each planet moves with respect to
-the Sun, meaning that all planets will have an average relative velocity
-value of 1.000, and in all cases, a velocity of 2.000 means the planet
-is moving twice as fast as normal, and one of 0.010 means the planet is
-about to turn retrograde.
+moved through the zodiac. That means outer planets will generally always
+have lower values, e.g. although a velocity of 0.010 degrees/day for
+fast moving Mercury means it's about to turn retrograde, the same
+velocity value is normal for slow moving Pluto. Because it is useful to
+know when a planet is about to change direction, the -v0 switch will
+divide the actual velocity values by how fast each planet moves with
+respect to the Sun. That means all planets will have an average relative
+velocity value of 1.000, and in all cases a velocity of 2.000 means the
+planet is moving twice as fast as normal, and one of 0.010 means the
+planet is about to turn retrograde.
 
 Note: The -v0 switch which expresses planetary velocities relative to
 average speed has a known incompatibility will cause some applying vs.
 separating aspect orbs to be inverted, i.e. displayed as applying when
-the reverse is true or vice versa. This affects app/sep aspect grids and
-aspect lists (-ga, -ma, and -D charts, but not the -T transit influence
-charts). This is because the velocities are used to determine applying
-vs. separating to see if one planet is overtaking another. The bug comes
-with the program thinking that, for example, Pluto moving 2 times faster
-than normal, will soon overtake Mars, slightly ahead of it in the
-zodiac, moving half normal speed. When the values are expressed as
-absolute speed, it's apparent that the outer planet Pluto always moves
-much slower than the more inner planet Mars even when Mars is moving
-half normal speed. This problem is at least not likely to come up much
+the reverse is actually true or vice versa. This affects aspect grids
+and aspect lists (-ga, -ma, and -D charts, but not the -T transit
+influence charts). That is because velocities are used to determine
+applying vs. separating to see if one planet is overtaking another. The
+issue comes with the program thinking that, for example, Pluto moving 2
+times faster than normal will soon overtake Mars, slightly ahead of it
+in the zodiac and moving half normal speed. When the values are
+expressed as absolute speed, it's apparent that the outer planet Pluto
+always moves much slower than the more inner planet Mars even when Mars
+is moving half normal speed. This issue is not likely to come up much
 since only explicitly combining -v0 with -ga, -ma, or -D will cause a
 problem.
 
@@ -1455,10 +1524,10 @@ name itself.
 Search through the aspect grid for major aspect configurations,
 including Grand Trines, T-Squares, Grand Crosses, Yod's, Cradles, and
 Stelliums, with the -g0 option. In a Stellium, three or four objects
-must all be conjunct with each other; while in a Cradle, four objects
-form three sextiles producing a chain of sextiles half way around the
-zodiac. This option will produce the same aspect grid that -g displays,
-but afterwards will go through the grid and list any of these aspect
+must all be conjunct with each other. In a Cradle, four objects form
+three sextiles producing a chain of sextiles half way around the zodiac.
+This option will produce the same aspect grid that -g displays, but
+afterwards it will go through the grid and list any of these aspect
 configurations and what objects are forming them. Note that for Yods,
 the Inconjunct aspect must be unrestricted in order to see them (e.g.
 include -A 6). Note that for Stelliums, three and four planet
@@ -1466,12 +1535,11 @@ conjunction Stelliums are listed separately, which means the three
 redundant three planet Stelliums within each four planet Stellium won't
 be shown.
 
-**-g0:** For comparison charts, show midpoints instead of aspects.
+**-gm:** For comparison charts, show midpoints instead of aspects.
 
-For relationship aspect grids, the -g0 switch will display a midpoint
+For relationship aspect grids, the -gm switch will display a midpoint
 grid instead of an aspect grid between the planets in the two charts
-e.g. "-r0 chart1 chart2 -g0". (See later for descriptions of the
-relationship charts.)
+e.g. "-r0 chart1 chart2 -gm".
 
 **-ga:** Like -g but indicate applying instead of difference orbs.
 
@@ -1498,14 +1566,14 @@ grids, and the graphics versions of them. The graphic glyph for the
 parallel aspect is two vertical parallel lines, while the glyph for
 contraparallel are two sets of two lines crossing each other, like a
 tic-tac-toe grid. In -gp affected charts, the parallel takes the place
-of conjunction, and contraparallel the place of opposition; all aspect
+of conjunction, and contraparallel the place of opposition. All aspect
 orb settings affecting conjunction and opposition will affect the -gp
 aspects in the same way. (Note that the best orb for parallel aspects is
 only a degree or so, hence the default conjunction orb will likely be
 too high, and should be decreased with the -Ao switch for -gp grids.)
 The -A and -RA aspect selection switches will also affect -gp, but all
 aspects beyond the first two are ignored as only the parallel and the
-contraparallel aspect are considered.
+contraparallel aspects are considered.
 
 **-a:** Display list of all aspects ordered by influence.
 
@@ -1653,14 +1721,8 @@ Cancer, and the z-axis is with respect to the Earth's orbit (meaning
 that the Sun and Earth always have a z-axis value of 0.0). Finally the
 overall length from the central body in AU is printed, which is just the
 diagonal as indicated by the x, y, z vectors. (The Earth and Sun are of
-course always about 1.0 AU from each other.) The Moon circles the Earth
-and isn\'t a part of the solar system proper; therefore, it is never in
-these charts. The -e everything option will include this chart in its
-listing of all the chart displays. (Note that the Earth doesn\'t have a
-formal object index of its own. Hence there's no real way to directly
-restrict it from these -S space charts either in text or graphics
-format. Only the -R0 (and -R1) restrict everything switches will affect
-this body, as they do all the others.)
+course always about 1.0 AU from each other.) The -e everything option
+will include this chart in its listing of all the chart displays.
 
 **-l:** Display Gauquelin sectors for each planet in chart.
 
@@ -1762,15 +1824,16 @@ at exact to zero power at the limit of the orb. Sorry Maggie M. and Mark
 K. - no complex aspect wave functions, at least for this version. :)
 
 Special thanks goes to Mark K. who initially presented this idea of
-interpreting overall influences to me. I basically just took his ideas,
-polished them a bit, and put it into the code. Interestingly, while
-programming this feature, I had a dream about him, in which he
+interpreting overall influences to me. I basically just started with his
+ideas, polished them a bit, and put it into the program. Interestingly,
+while programming this feature I had a dream about him, in which he
 elaborated upon some of the ideas and even gave me suggestions for some
-of the planets\' default power values (astral visitation?) And, while on
-the subject, I\'ve had a couple of other Astrolog dreams; I had one neat
-one while working on the -h feature (described later) about a far
-distant future version of Astrolog that could actually teleport one to
-the places which they cast charts for. :)
+of the planets\' default power values. Perhaps this was an astral plane
+visitation? :) While on the subject, I\'ve had a couple of other
+Astrolog dreams; I had a neat one while working on the -h switch
+heliocentric feature about a far distant future version of Astrolog that
+could actually teleport one to the planets which they cast charts
+centered upon. :)
 
 **-j0:** Like -j but include influences of each zodiac sign as well.
 
@@ -1779,19 +1842,22 @@ signs as well. Invoke it as -j0 instead of just -j, and in addition to
 getting the influence of each planet in a chart, one will get the
 influence of each sign in the chart as well. To determine sign
 influence, we use the planet powers already determined; a sign gets
-influence if: (1) There is a planet in it, (2) there is a planet in the
-house it corresponds to, and (3) if any planet that rules or co-rules it
-is in the chart. For example, with my 11th house Venus in Sagittarius,
-for me: (1) Sagittarius gets more power because Venus is in it, (2)
-Aquarius gets more power because Venus is in the 11th, and (3) Libra and
-Taurus get power because Venus itself rules these signs. The exact power
-given is based on the total influence of Venus already determined. Any
-sign that has over about 175 points or 20% of the total is a really
-powerful and a fundamental part of the psyche. We also sum up the
-influences of all the signs (which will logically total up to the sum of
-all the planets), and display the influence of each element as well, and
-each mode as well, all this being perhaps a more accurate version of the
-element table in the -v chart.
+influence if:\
+(1) There is a planet in it.\
+(2) There is a planet in the house it corresponds to.\
+(3) If any planet that rules or co-rules it is in the chart.
+
+For example, with my 11th house Venus in Sagittarius, for me: (1)
+Sagittarius gets more power because Venus is in it, (2) Aquarius gets
+more power because Venus is in the 11th, and (3) Libra and Taurus get
+power because Venus itself rules these signs. The exact power given is
+based on the total influence of Venus already determined. Any sign that
+has over about 175 points or 20% of the total is a really powerful and a
+fundamental part of the psyche. We also sum up the influences of all the
+signs (which will logically total up to the sum of all the planets), and
+display the influence of each element as well, and each mode as well,
+all this being perhaps a more accurate version of the element table in
+the -v chart.
 
 **-7:** Display esoteric astrology and ray summary for chart.
 
@@ -1962,7 +2028,7 @@ Related to above, the -dp option may also be done for a range of years.
 Invoke the switch as -dpY, and pass in not only the year to search
 within as with -dpy, but the number of years to scan from then. For
 example, do display the times of all aspects within your progressed
-chart for the next decade, do "astrolog -i yourchartfile -dpY 2015 10".
+chart for the next decade, do "astrolog -i yourchartfile -dpY 2017 10".
 
 **-dp\[y\]n:** Search for progressed aspects in current month/year.
 
@@ -1995,6 +2061,61 @@ coming up, and don\'t want things such as Uranus Neptune conjunctions to
 "sneak by", use this chart and watch the configuration gradually rise to
 the top of the list as its orb narrows over time. This chart may be
 combined with others and is included in the -e everything switch.
+
+**-B:** Like -d but graph all aspects occurring in a day.\
+**-B\[m,y,Y\]:** Like -B but for entire month, year, or five years.\
+**-B0:** Like -B but don\'t restrict fast moving objects from graph.\
+**-V\[\...\]:** Like -t but graph all transits occurring during period.\
+**-V0\[\...\]:** Like \_V but don\'t restrict fast moving objects from
+graph.
+
+Transit graphs: Astrolog has a graphical transit chart, which consists
+of a table of transit aspects, each aspect of which has its strength
+mapped over a period of time. The result makes it easy to see when an
+aspect enters orb, is exact, and leaves orb. These graphs also allow
+seeing cases when an aspect comes close to but never becomes exact,
+which is a situation missed by charts that only display times when
+aspects are exact. The transit graph comes in two forms: transit to
+transit, and transit to natal. Both forms can be displayed to show
+aspects within a single day, a single month, a single year, or a range
+of five years. Counting text mode and graphics mode versions of these
+charts, there are 2x4x2 = 16 different transit graph chart types total!
+The transit to transit graph is accessed via the new -B command switch,
+which is identical in syntax to the existing -d transit to transit times
+search, including all subswitches. The transit to natal graph is
+accessed via the new -V command switch, which is identical in syntax to
+the existing -T transit influence list, including all subswitches.
+
+The total number of different aspects that are active within the period
+may be high, especially when considering fast moving objects like the
+Moon and especially house cusps. Note that for graphic charts, if there
+are too many transits to fit within the screen height, then later
+aspects will be skipped. By default transit graphs don't include aspects
+involving certain fast moving bodies. Graphs involving a single day will
+skip house cusp objects, graphs involving a month will skip the Moon as
+well, and graphs involving year(s) will skip the Sun through Mars as
+well. If the -B and -V switches are invoked as -B0 and -V0, then this
+automatic restriction won't happen. In the Windows version, this can be
+toggled with the "Graphics / Modify Chart" command.
+
+In text mode transit graphs, each aspect has its own row, and each
+character within a row represents a time period. If the aspect is within
+orb at that time, then a digit from 0-9 is placed there, in which "0"
+means the orb is 0-10% exact on up to "9" which means the orb is 90-100%
+exact. Peaks in influence (which usually but not always indicate when
+the aspect is exact or 100% within orb) are colored white to make them
+stand out better. Every row will have at least one high point marked,
+even if it's on one of the edges where an orb is increasing at the
+boundary. In addition, for the transit to transit graphs, the column
+corresponding to the time of the chart will be marked with vertical bar
+characters. Transit graphs also come in a graphics version (unlike the
+existing transit time and transit influence charts which only have text
+versions). In the graphics mode transit graphs, each aspect has its own
+row, in which each row is a mini-graph plotting the aspect's strength
+over time. Peaks and high points will be marked in white, and for the
+transit to transit case, the column corresponding to the time of the
+chart will be marked in dark green (unless the -Xi switch modify display
+setting is active).
 
 **-E:** Display planetary ephemeris for given month.
 
@@ -2126,7 +2247,7 @@ natal chart.
 
 To display transits for an entire year, invoke the -t switch as -ty
 (-tpy for progressions), which only takes one parameter, the year. For
-example, "-i chartfile -ty 2015".
+example, "-i chartfile -ty 2017".
 
 **-t\[p\]Y: \<year\> \<years\>:** Compute transits for a number of
 years.
@@ -2140,13 +2261,13 @@ will start that many years before the given year, e.g. -tY 1999 -10000
 will scan the previous 100 centuries for transits, starting with 8002
 B.C.! Note that this switch may also be invoked as "-tYn \<years\>", in
 which case it will start from the current year and be an equivalent
-shorthand to "-tY 2015 \<years\>" for this year at least.
+shorthand to "-tY 2017 \<years\>" for this year at least.
 
 **-t\[py\]n:** Compute transits to natal planets for current time now.
 
 This feature is a quick shorthand way to generate transits for the
 current month. For example, instead of "astrolog -i chartfile -t 12
-2015", one can do "astrolog -i chartfile -tn". To do transits for the
+2017", one can do "astrolog -i chartfile -tn". To do transits for the
 entire current year, invoke it as "-tyn".
 
 **-T \<month\> \<day\> \<year\>:** Display transits ordered by
@@ -2161,10 +2282,10 @@ transiting and natal planets (and the signs they are in) are displayed,
 along with the aspect and the orb, and whether the transit is applying
 and going to happen in the future, or just passed exactness and the orb
 is separating. The computer computed power value of each transit will be
-printed too - anything over 100 is a very major transit. Any transit
-that's a return, i.e. a transiting planet conjuncting the same one in
-the natal chart, will be flagged with a capital "R" at the end of the
-line.
+printed too, in which anything over 100 is a very major transit. Any
+transit that's a return, i.e. a transiting planet conjuncting the same
+one in the natal chart, will be flagged with a capital "R" at the end of
+the line.
 
 The things which affect how Astrolog computes the influence of a transit
 are: The power of the object that's doing the transit, e.g. transiting
@@ -2206,31 +2327,39 @@ exactness.
 Also notice the resemblance between -T and the -r0 -a combination. Both
 display aspects ordered by influence. In fact, "-i chart -Tn" will look
 almost identical to "-y chart -a", except that -T is designed and
-formated for doing transits to a particular chart. (Doing -T will always
-use applying vs. separating orbs, generate powers using the transit
-influences, and allow the transiting and natal planets to be restricted
-separately with -RT and -R.) Astrolog allows transit charts to be done
-between transiting planets and natal planets, as well as charts among
-transiting planets to themselves, both of which can be expressed as
-searches for exact times, or displays of influences of each aspect at a
-particular time, as summarized in the following organized list:
+formatted for doing transits to a particular chart. (Doing -T will
+always use applying vs. separating orbs, generate powers using the
+transit influences, and allow the transiting and natal planets to be
+restricted separately with -RT and -R.) Astrolog allows transit charts
+to be done between transiting planets and natal planets, as well as
+charts among transiting planets to themselves, both of which can be
+expressed as searches for exact times, or displays of influences of each
+aspect at a particular time, as summarized in the following organized
+list:
 
 -t switch: Display exact times of transits to natal planets.\
 -T switch: Display influences of transits to natal planets.\
 -d switch: Display exact times of aspects among transiting planets.\
 -D switch: Display influences of aspects among transiting planets.
 
-**-Tp \<month\> \<day\> \<year\>:** Print progressions instead of
+**-Tt \<month\> \<day\> \<year\> \<time\>:** Like -T but specify time
+too.
+
+The -Tt switch is just like -T, except in addition to month/day/year
+parameters for the transit influence chart date, it also takes a fourth
+parameter for the time within the date.
+
+**-T\[t\]p \<month\> \<day\> \<year\>:** Print progressions instead of
 transits.
 
 The -T transit influence switch can also (like the -t transit search)
 display all aspects between progressed planets and natal planets in
 influence order, if it's invoked as -Tp instead of just -T. This works
 like -T in every way except that a switch combination like "-i mychart
--Tp 12 30 2015" will display aspects between my natal planets, and those
-in my natal chart progressed to the end of the month, and their
-influence and orbs at that time, instead of between my natal planets and
-the actual positions of the planets at the end of March.
+-Tp 12 30 2017" will display aspects between my natal planets, and those
+in my natal chart progressed to the end of the year, and their influence
+and orbs at that time, instead of between my natal planets and the
+actual positions of the planets at that time.
 
 **-T\[p\]n:** Display transits ordered by influence for current date.
 
@@ -2240,7 +2369,7 @@ affecting your natal chart presently, just do "-i yourchart -Tn".
 
 **-P \[\<parts\>\]:** Display list of Arabic parts and their positions.
 
-Astrolog has the ability to display the positions of 177 Arabic parts!
+Astrolog has the ability to display the positions of 177 Arabic parts.
 The "ARABIC" compile time option in astrolog.h may be commented to leave
 this feature out if you don\'t want it. Display a chart with the -P
 switch to show each part and its position, one per line for the chart in
@@ -2492,7 +2621,8 @@ example, an animation continually updating to the current moment will
 change to or from Daylight Time at the second the annual switchovers
 take place. Without this option one would have to manually change this
 switch in their default settings file twice a year. Presently the "auto"
-value is only implemented to detect this in the Windows version.
+value is only implemented to detect this in the Windows version, and
+will default to Daylight time being off on different platforms.
 
 **-zl \<long\> \<lat\>:** Change the default longitude & latitude.
 
@@ -2595,7 +2725,7 @@ midnight on the first of January of a year can be generated with the one
 parameter -qy \<year\> switch. Both of these use the default time zone
 and location. These switches are most useful for charts that don\'t
 require all the standard information. For example, to get an ephemeris
-for December 2015, do "astrolog -qm 12 2015" and avoid having to enter
+for December 2017, do "astrolog -qm 12 2017" and avoid having to enter
 in a day, hour, or location that wouldn\'t have any effect. These
 options are in similar to the -qd \<month\> \<day\> \<year\> switch
 above that will do a chart for noon on the given date, and the -q
@@ -2633,13 +2763,14 @@ another way to cast a chart for Midnight, GMT, on New Year's day of 2017
 is with "-qj 2457754.5". (Julian Day 0 refers to Noon GMT, January 1,
 4712 BC.)
 
-Known bug: If the extended Placalc formulas aren\'t compiled into the
-program it will have to use an older version of the Julian day
-conversion routines which will result in these -qj charts giving
-incorrect results for dates in the Julian Calendar, i.e. before October
-1582, which can be seen by casting a chart with -qj specifying a day
-less than 2299161.5, in which case the Julian Day displayed for the date
-of the chart cast will be ten days greater than what was passed to it.
+Note: If the Swiss Ephemeris and Placalc ephemeris files are turned off,
+and only the ancient Matrix formulas are being used, then the program
+will have to use an older version of the Julian day conversion routines
+which will result in these -qj charts giving incorrect results for dates
+in the Julian Calendar, i.e. before October 1582. This can be seen by
+casting a chart with -qj specifying a day less than 2299161.5, in which
+case the Julian Day displayed for the date of the chart cast will be ten
+days greater than what was passed to it.
 
 **-i \<file\>:** Compute chart based on info in file.
 
@@ -2663,7 +2794,7 @@ animation situation was saved via the \'o\' key. Perhaps the most useful
 ability of the "set" chart however is that it will set itself to times
 that appear in -t and -d transit and aspect in day searches. For
 example, if you want to cast a chart for the New Moon this January,
-first do a combination like "-qd 1 20 2015 -d -R0 Sun Moo -A 1", which
+first do a combination like "-qd 1 20 2017 -d -R0 Sun Moo -A 1", which
 will scan the 20th for Conjunctions involving the Sun and Moon, and
 display the time. Before, to get a New Moon chart one would then have to
 manually specify the time displayed. Now, just "-i set" will bring it
@@ -2671,9 +2802,9 @@ up!
 
 The initial contents of the "previous" chart, i.e. what you get by
 directly doing something like "astrolog -i set" are initialized to the
-astrological "chart" for the release of this version 6.20 of the program
-itself, which is the time of the Spring Equinox, specifically for
-2:28:38am PST (8 hours before GMT) on Monday, March 20, 2017 for
+astrological "chart" for the release of this version 6.30 of the program
+itself, which is the time of the solar Scorpio ingress, specifically for
+10:26:42pm PDT (7 hours before GMT) on Sunday, October 22, 2017 for
 Seattle, WA (122W19:59, 47N36:35).
 
 This is one more "virtual file" that's obscure and only useful in
@@ -2685,7 +2816,7 @@ before. This is mainly useful with the -r switches if you don\'t want to
 have to create two actual files to pass in, or use the virtual file
 "tty" and have to enter in data interactively. For example, to see what
 your biorhythm is like for the beginning of December, do "astrolog -qm
-12 2015 -rb nul yourchart.as" on the command line and no further input
+12 2017 -rb nul yourchart.as" on the command line and no further input
 is needed.
 
 Note that specification of command switch files doesn't require the
@@ -2836,30 +2967,29 @@ restrictions are omitted, since we're only looking at Sun locations.
 
 **-R0 \[\<obj1\> ..\]:** Like -R but restrict everything first.
 
-The -R0 option will cause ALL of the bodies to be ignored, which is
-useful if you are looking for just the transits/aspects of a few planets
-(e.g. -R0 6 7 will cause everything but Jupiter and Saturn to be
-ignored.) Combining all these methods can cause whatever you are looking
-for in transits and aspects to be quickly found without having to wade
-through lots of data you aren\'t interested in.
+The -R0 option will cause all bodies to be restricted, which is useful
+if you are looking for just the transits/aspects of a few planets (e.g.
+-R0 6 7 will cause everything but Jupiter and Saturn to be ignored.)
+Combining all these methods can cause whatever you are looking for in
+transits and aspects to be quickly found without having to wade through
+lots of data you aren\'t interested in.
 
 **-R1 \[\<obj1\> ..\]:** Like -R0 but unrestrict and show all objects.
 
-This will unconditionally UN-restrict all planets and other objects used
-by the program, a compliment to the -R0 switch above which restricts
-everything. Note that this will also set modes, in that it does
-automatically activate the -C, -u, and -U sets of objects.
+This will unconditionally unrestrict all planets and other objects used
+by the program, which is a complement to the -R0 switch above which
+restricts everything. Note that this will also set modes, in that it
+does automatically activate the -C, -u, and -U sets of objects.
 
 **-R\[C,u,U\]:** Restrict all minor cusps, all Uranians, or stars.
 
 These three switches are similar to the -R0 option in that they
 initially restrict objects, i.e. all the minor cusps, Uranians, and
-stars, (described below) respectively from appearing. For example, if
-you want to include only the star Sirius in an X window chart without
-having to also include all the other stars (or having to enter a very
-long restriction list), do: "astrolog -U -RU 48 -X", which will include
-the stars, and then restrict them all except Sirius, before making the
-chart.
+fixed stars, respectively from appearing. For example, if you want to
+include only the star Sirius in a window chart without having to also
+include all the other stars (or having to enter a very long restriction
+list), do: "astrolog =RU Sir -X", which will include restrict all stars
+except Sirius, before making the chart.
 
 **-RT\[0,1,C,u,U\] \[..\]:** Restrict transiting planets in -t lists.
 
@@ -2895,6 +3025,15 @@ unrestrict uncovered aspects, and decreasing it will automatically
 restrict covered aspects. Also, manually restricting or unrestricting
 aspects will automatically adjust the aspect count to be the highest
 unrestricted aspect.
+
+**-RO \<obj\>:** Require object to be present in aspects.
+
+A "reverse restriction" is a required object that must be present in
+charts involving aspects between planets. For example, if you want to
+see only aspects or transits involving Mars (such as Mars Trine Venus,
+and Mars Trine Jupiter, but not Venus Trine Jupiter) then Mars is
+considered required. If the object parameter is -1, "None", or the empty
+string, that will turn this option off and not have a required object.
 
 **-C:** Include angular and non-angular house cusps in charts.
 
@@ -2961,7 +3100,7 @@ magnitudes greater than this value.
 
 **-U\[z,l,n,b\]:** Order by azimuth, altitude, name, or brightness.
 
-In the -v standard chart, -Z horizon chart, and in the -O object list,
+In the -v standard chart, -Z horizon chart, and in the -HO object list,
 where all the stars are printed sequentially, it can sometimes be
 confusing to locate the star you want among 42 others. The -U option can
 be modified to sort the stars in various ways. If one uses -Ub instead
@@ -2980,6 +3119,24 @@ in the aspect grids, specifying -A \<number\> will limit or extend the
 number of aspects (e.g. -A 2 will make charts with only conjunctions and
 oppositions listed in them, while -A 18 will include all 18 aspects that
 Astrolog supports.)
+
+**-A3:** Aspect orbs consider latitude as well as zodiac position.
+
+3D aspects: Aspect calculations can take the latitude of the planet into
+account. In other words, the angle between two planets is based on the
+3D great circle distance between them on the celestial sphere, and not
+just the 2D difference between their zodiac position longitudes.
+
+For example, during a New Moon the Sun and Moon may be as much as 5
+degrees different in latitude, which means that even when a New Moon is
+exact, the 3D aspect orb between them may be up to 5 degrees. (If the
+Sun and Moon are conjunct in both zodiac position and latitude, then a
+solar eclipse is taking place.) For bodies with latitudes that can be
+widely different from the ecliptic, such as Pluto, asteroids, and
+especially fixed stars, the difference is more pronounced. For example,
+a body at 0Leo and -30 latitude will be Square a body at 0Leo and +60
+latitude, even though they're both at the same longitude and would be
+considered Conjunct normally.
 
 **-Ao \<aspect\> \<orb\>:** Specify maximum orb for an aspect.
 
@@ -3048,12 +3205,12 @@ Switches which affect how a chart is computed:
 **-b:** Use ephemeris files for more accurate location computations.
 
 Astrolog uses the accurate Swiss Ephemeris to compute the positions of
-most bodies. These include the planets, the Moon and its nodes and
-Lilith, Chiron and the asteroids, and the Uranians and Vulcan. (Other
-objects like the fixed stars and house cusps are always generated in the
-same way.) The Swiss Ephemeris (version 1.74) is a compressed version of
-NASA's Jet Propulsion Laboratory (JPL) DE431 ephemeris, and reproduces
-it with 0.001 arc seconds precision.
+objects. These include the planets, the Moon and its nodes and Lilith,
+Chiron and the asteroids, and the Uranians and Vulcan. Swiss Ephemeris
+is also used to compute fixed stars and house cusps. The Swiss Ephemeris
+(version 1.74) is a compressed version of NASA's Jet Propulsion
+Laboratory (JPL) DE431 ephemeris, and reproduces it with 0.001 arc
+seconds precision.
 
 The ephemeris files used by the Swiss Ephemeris cover 10,000 years.
 Three different files cover each date range, which are named "se\*.se1",
@@ -3146,15 +3303,14 @@ disabled. It's a minor effect, since on average house cusps change 15
 arc seconds every clock second, however the slight improvement in
 accuracy is still present.
 
-**-b0:** Like -b but display locations to the nearest second too.
+**-b0:** Display locations and times to the nearest second.
 
 The ability to display zodiac positions to the arc second is supported
 with the -b0 switch. Without this, positions are displayed only to the
-arc minute (which is all that is useful due to the lesser accuracy of
-the old Matrix formulas). With the Swiss Ephemeris routines accurate to
-within seconds, this switch, in addition to turning on the more accurate
-formulas like just -b above does, will also turn on the more precise
-display.
+arc minute (which used to be all that was useful due to the lesser
+accuracy of older calculation methods). With the Swiss Ephemeris
+routines accurate to within an arc second, this switch will turn on the
+more precise display.
 
 When this setting is on, the planet and house positions in the -w text
 wheel chart, and the sidebar positions in graphic wheel charts, will be
@@ -3186,6 +3342,16 @@ times in the -d Transits In Day search list, the -t Transit To Natal
 search list, and the -Zd Rising and Setting Times list will all be
 displayed to the second, instead of just to the minute. This will also
 affect the time and location values in chart header text.
+
+**-bs:** Use less accurate Moshier formulas instead of Swiss Ephemeris.
+
+When ephemeris files are unavailable, the Swiss Ephemeris automatically
+falls back to using a slightly less accurate internal ephemeris and
+formulas by Steve Moshier. The Moshier ephemeris is based on the JPL
+DE404 ephemeris, which covers 6000 years (-3000 BC to 3000 AD), and
+computes planets to within 0.1 arc seconds, and the Moon within 3 arc
+seconds. The new -bs switch will force Astrolog to use the Moshier
+ephemeris, even if the more accurate ephemeris files are available.
 
 **-bp:** Use less accurate Placalc files instead of Swiss Ephemeris.
 
@@ -3375,8 +3541,8 @@ as that of the rest of Astrolog.
 
 **-bm:** Use inaccurate Matrix formulas when ephemeris unavailable.
 
-If the Swiss Ephemeris is disabled or not compiled in, then Astrolog
-will use a very old set of formulas that don't include external
+If the Swiss Ephemeris and Placalc are disabled or not compiled in, then
+Astrolog will use a very old set of formulas that don't include external
 ephemeris files, based on routines originally designed by Matrix
 Software. The old Matrix formulas are only accurate to about one arc
 minute for the 20th century. The anian objects are less accurate in the
@@ -3390,8 +3556,17 @@ the best Swiss Ephemeris positions are ever in place. Many may prefer
 the error condition of no positions, to relatively inaccurate and
 potentially misleading positions. There's little reason for the average
 user to ever need or want to turn this on, although some features like
-defining your own orbital elements (-YE switch) make use of the simple
-Matrix formulas.
+defining your own orbital elements (via the -YE switch) make use of the
+simple Matrix formulas.
+
+**-bU:** Use inaccurate Matrix formulas for fixed stars only.
+
+The Swiss Ephemeris is also used for computing the positions of fixed
+stars. Star positions are taken from the file sefstars.txt that comes
+with Astrolog's installation. Stars can be computed without Swiss
+Ephemeris with the -bU command switch. There's little reason to not use
+Swiss Ephemeris, although fixed stars are computed slightly faster via
+the older and less accurate method.
 
 **-c \<value\>:** Select a different default system of houses. 0 =
 Placidus, 1 = Koch, 2 = Equal, 3 = Campanus, 4 = Meridian, 5 =
@@ -3642,6 +3817,15 @@ below) specifies the number of days that have to pass per zodiac degree
 to progress forward; by default this is 365.24219. To generate a solar
 arc chart for the current moment now, invoke the -pn switch as -p0n.
 
+**-p\[0\]t \<month\> \<day\> \<year\> \<time\>:** Like -p but specify
+time too.
+
+The -pt switch is just like -p, except in addition to month/day/year
+parameters for the date to progress to, it also takes a fourth parameter
+for the time within the date. Progressed charts usually move so slowly
+that one doesn't care about time, but time can be specified for extra
+precision.
+
 **-p\[0\]n:** Cast progressed chart based on current date now.
 
 The -pn switch is like the -p \<month\> \<date\> \<year\> switch except
@@ -3847,14 +4031,14 @@ filename "now" for any file and the computer will use the current planet
 positions instead of looking for a like named file. (e.g. \'astrolog -r
 me now\' will compute transits for file \'me\'.)
 
-Hackers note: if the -r switch is invoked as "\_r" with the underscore
-reset prefix, whatever relationship mode will be canceled. Unlike the
-standard -r switches, \_r takes no file parameters. This is a command
-switch trick only useful when doing multiple charts in a -Q loop, or
-when passing extra command lines to a graphics screen with the return
-key or through macros. Astrolog's -r relationship chart switches set
+Note: if the -r switch is invoked as "\_r" with the underscore reset
+prefix, whatever relationship mode will be canceled. Unlike the standard
+-r switches, \_r takes no file parameters. This is a command switch
+trick only useful when doing multiple charts in a -Q loop, or when
+passing extra command lines to a graphics screen with the return key or
+through macros. Astrolog's -r relationship chart switches set
 relationship chart mode, and without this there's no easy way to return
-to single chart mode. Yes when a graphics screen is up, the \'c\' key
+to single chart mode. Yes, when a graphics screen is up, the \'c\' key
 will toggle relationship comparison mode, but that's not available from
 the command line.
 
@@ -3973,13 +4157,22 @@ of the aspects between all the planets of the two charts (with person1's
 planets on the vertical axis and person2's on the horizontal) to be
 displayed. (Unfortunately, if all 20 of the default objects are left
 unrestricted here, the grid will exceed 80 columns, unless the -Y8 80
-column clip feature (described later) is turned on.) The -r0 option can
-also be used with the -X switch to generate true relationship wheel
-charts, (described later). The -r0 option will act like the -r synastry
-option in certain displays that can\'t compare two charts; for example,
-\'-r0 -v\' will act the same as just \'-r -v\'. (Note: the "-t file"
-current transit option is basically a shorthand way of doing "-r0 file
-now".)
+column clip feature is turned on.) The -r0 option can also be used with
+the -X switch to generate true relationship bi-wheel charts. The -r0
+option will act like the -r synastry option for those displays which
+can\'t compare two charts. (Note the "-y file" current transit option is
+basically a shorthand way of doing "-r0 file now".)
+
+Comparison relationship charts may be generated for the standard -v text
+listing. This is the text mode version of a bi, tri, or quad wheel
+chart, and is displayed with the -v -r0 switch combination. The two to
+four charts covered will each have of their planet positions (both
+zodiac position and latitude) listed side by side. Also included is a
+delta, listing the distance between each pair of planets, or the maximum
+distance between any two planets in the case of tri and quad charts.
+This delta distance is the difference between zodiac positions (unless
+the 3D aspects setting is active, in which case it will be the great
+circle distance taking latitude into account too).
 
 Comparison relationship charts may also be generated for the -m midpoint
 and -a aspect list options. Combining -m with -r0 will yield an ordered
@@ -3987,9 +4180,9 @@ list of all midpoints between all combinations of one planet from chart1
 and another planet from chart2. Combining -a with -r0 will yield a list
 of all aspects between planets in the two charts, in order based on what
 Astrolog think their influences are. So, if you really want to know if
-your Sun widely trining your SO's Moon, will override the effect of your
-Saturn closely squaring their Mars, do "astrolog -r0 yourchart sochart
--a" and see the influence given to each aspect.
+your Sun widely trining your partner's Moon, will override the effect of
+your Saturn closely squaring their Mars, do "astrolog -r0 yourchart
+theirchart -a" and see the influence given to each aspect.
 
 **-rp\[0\] \<file1\> \<file2\>:** Like -r0 but do file1 progr. to file2.
 
@@ -4129,23 +4322,6 @@ they can be displayed on alternate systems, etc. Note that -Xb (or any
 other -X\<letter\> switch) automatically assumes the -X switch above, so
 \'astrolog -i file -Xb\' is sufficient (and you don\'t also have to
 include the -X).
-
-Bitmap files may be generated at any size without running out of memory.
-If any particular sized bitmap it too large to fit in memory all at
-once, Astrolog will generate it in multiple stages, using available
-memory to do one section at a time, writing each piece to the file as we
-go along. (This is similar to the banding method often used to print
-large images to printers.) For versions of PC Astrolog before 4.20,
-there was barely enough memory in the 640K available to generate even
-the standard 640x480 color bitmap. Now one will always be able to do any
-size allowed, even the maximum of 2730 by 2730 yielding a file nearly
-four megabytes in size! We do however have to draw the chart once for
-each band, so if a bitmap is done in two stages, it will take nearly
-twice as long to generate. Larger bitmaps require more stages and more
-time, but we can at least always make them. This banding is only done
-for the Windows bitmap format; the other formats still need to be done
-in one shot, however the other formats are usually done on non-DOS
-systems where memory isn\'t limited to 640K.
 
 **-Xb\[n,c,v,a,b\]:** Set bitmap file output mode to X11 normal,
 compacted, very compact, Ascii (bmtoa), or Windows bmp.
@@ -4336,13 +4512,8 @@ size of these use -Xs below.
 For X window systems only, Astrolog accepts the standard -geometry
 switch (which can be abbreviated as -geom or anything starting with
 -ge). This is only an alias to this -Xw chart size switch, in that it
-takes the same parameters in the same way. PC graphics charts may be
-automatically sized to the dimensions of the screen by passing zero to
-either or both parameters of the -Xw switch. (Without this, to fill the
-screen or prevent clipping, one would have to find out the dimensions of
-whatever graphics mode beforehand, or manually press the \'B\' key to do
-the same thing.) If -Xw is passed zero under X Windows, it will use the
-compile time default window size.
+takes the same parameters in the same way. If -Xw is passed zero under X
+Windows, it will use the compile time default window size.
 
 **-Xs \<100,200,300,400\>:** Change the size of map or characters by %.
 
@@ -4374,21 +4545,32 @@ it are 100, 200, 300, and 400 where 100 is the default. On high
 resolution monitors with many pixels, the default text size may be small
 enough to be hard to read, so increasing it may be appropriate.
 
+**-XQ:** Ensure square charts remain so regardless of bitmap size.
+
+This setting will force all graphics charts to be square, assuming they
+can be resized arbitrarily and look better when square. This option is
+similar to running the "Graphics / Square Screen" menu command in the
+Windows version after every manual window resize (except it won't
+automatically resize the window to fit the final chart size, but rather
+will draw within the largest square area within the window). If this
+option is not on, then resizing a wheel chart will result in an
+elliptical wheel.
+
 **-Xi:** Create chart graphic in slightly modified form.
 
-Certain people have asked that some of the graphics charts be modified
-in various minor ways, i.e. in either adding or removing certain
-information. Rather than add a new hard to remember minor option for
-each change, I have added one major switch which covers all the charts.
-The -Xi switch will invoke this "induce/inhibit information" option, and
-pressing the \'i\' key in a window will accomplish the same thing by
-toggling the mode's status. By default, all the charts are as before,
-but when this bonus option is set, it affects each graphic chart in a
-different way, as follows:
+The display of graphics charts can be modified in various minor ways,
+i.e. in either adding or removing certain information. Rather than add a
+new hard to remember minor option for each change, there is one
+comprehensive switch which covers all charts. The -Xi switch will invoke
+this "induce/inhibit information" option, and pressing the \'i\' key in
+a window will accomplish the same thing by toggling the mode's status.
+By default, all the charts are as before, but when this option is set,
+it affects each graphic chart in a different way, as follows:
 
 For the standard -v and relationship -r0 -v wheel charts, it will
-inhibit the display of the aspect grid in the center - useful for speed
-or when doing large time lapse animations when it would get in the way.
+inhibit the display of the aspect grid in the center, which can be
+useful when doing large time lapse animations when it would get in the
+way.
 
 For the -g aspect grid, it will flip the aspects and midpoints across
 the center diagonal, i.e. the midpoints will be below it and the aspects
@@ -4410,44 +4592,31 @@ Ascendant, Descendant, and Nadir lines, leaving just the vertical
 Midheaven lines and zenith points, for a remarkable increase in speed
 and much less clutter when including many objects.
 
-For the -XW world map display, this will show the Earth's ley line
-locations by drawing them on top of the map. Familiar with ley lines?
-They are lines of energy crossing the Earth. I was experimenting earlier
-with the master ley line grids on the Earth (in the pattern of an
-overlapped 20 sided Icosahedron and 12 sided Dodecahedron) and I figured
-Astrolog with its world map would be an interesting program to explore
-this with. Actually this is mainly a hack, and belongs more to the field
-of dowsing than to astrology, but I figured I would leave it in there
-for amusement and inspiration.
+For the -XW world map display, -XG globe display, and -XP polar globe
+display, it will display the zenith locations of all planets (and stars
+if -U in effect) on the globe, i.e. where on the Earth each object could
+be viewed by looking straight up. This on the globe display is almost
+identical to the astro-graph chart without its various lines, except of
+course that the projection of the world map is different. It's also
+similar to the -Z horizon display, except that it's free from the
+distortion of projecting the celestial sphere upon a plane, so it has
+use to star gazers. However, animation mode here will still only affect
+what part of the Earth is viewable, and won\'t update the chart from
+which the zenith locations were obtained.
 
-Hackers note: there is an interesting "bug/feature" that can arise with
-the -XW as well as the -XG (and -XP, described below) switches: These
-displays can be brought up in a window without having to specify an
-actual chart. Now suppose one presses \'V\', \'L\', etc. to bring up a
-chart - what will be displayed? The answer will be whatever initial
-values were already there, and if you're curious, it's set to be my own
-birth data: 11:01am PST (8 hours before GMT) on Friday, November 19,
-1971 in Seattle, WA (122W19:59 47N36:35). This info can also be brought
-up by accessing the "-i nul" virtual chart straight from the command
-line before any other switches.
-
-For the -XP polar globe view, this will show the southern hemisphere
-instead of the northern.
-
-For the -XG globe display, it will display the zenith locations of all
-planets (and stars if -U in effect) on the globe, i.e. where on the
-Earth each object could be viewed by looking straight up. This on the
-globe display is almost identical to the astro-graph chart without its
-various lines, except of course that the projection of the world map is
-different. It's also similar to the -Z horizon display, except that it's
-free from the distortion of projecting the celestial sphere upon a
-plane, so it has use to star gazers. However, animation mode here will
-still only affect what part of the Earth is viewable, and won\'t update
-the chart from which the zenith locations were obtained.
+Note there is an interesting thing that can arise with the -XW, -XG, and
+-XP switches: These displays can be brought up in a window without
+having to specify an actual chart. Now suppose one presses \'V\', \'L\',
+etc. to bring up a chart - what will be displayed? The answer will be
+whatever initial values were already there, and if you're curious, it's
+set to be my own birth data: 11:01am PST (8 hours before GMT) on Friday,
+November 19, 1971 in Seattle, WA (122W19:59 47N36:35). This info can
+also be brought up by accessing the "-i nul" virtual chart straight from
+the command line before any other switches.
 
 For the -E and -Ey graphical ephemeris displays, it will exclude showing
 the Moon and Part of Fortune without having to restrict them, which is
-commonly desired because their lines move across the ephemeris chart so
+commonly desired because their lines move across the ephemeris chart
 much faster than any of the other objects.
 
 **-Xt:** Inhibit display of chart info at bottom of graphic.
@@ -4459,10 +4628,13 @@ inhibit this display by specifying the -Xt switch.
 
 **-Xu:** Inhibit display of a border around graphic.
 
-This switch toggles off the border setting that is also interactively
+This switch toggles off the border setting, which is also interactively
 toggled by pressing the \'b\' key when a graphics screen is up. This
-switch allows one to toggle the border for graphics files as well as set
-the default for this in the astrolog.as file.
+covers the rectangular border around the outside of most charts, as well
+as the circular border around globes and the elliptical border around
+the Mollewide projection of the world map. This switch allows one to
+toggle the border for graphics files, as well as set the default for
+this in the astrolog.as file.
 
 **-Xl:** Inhibit labeling of object points in chart graphic.
 
@@ -4479,10 +4651,7 @@ interactively will toggle the same setting. This feature is used to draw
 "jet trail" streaks on the screen for some charts, such as the -S orbit
 and -Z local horizon. If you bring up one of these charts, turn on the
 setting, and then animate forward, a "time exposure" can be done showing
-the orbits of planets or an object's path across the sky. (When this is
-active, entering animation won\'t automatically jump to the flicker free
-mode on PC's, because that would make us flip back and forth between two
-pages breaking the continuity of our "streaks".)
+the orbits of planets or an object's path across the sky.
 
 **-X1 \<object\>:** Rotate wheel charts so object is at left edge.
 
@@ -4518,12 +4687,78 @@ will accept this string through the standard "-display" (which can be
 abbreviated as "-disp" or anything starting with "-di") switch common to
 most X11 applications.
 
-**-XW:** Simply create an image of the world map.
+**-XX\[0\] \[\<degrees\> \[\<degrees\>\]\]:** Display chart sphere
+instead of wheel.
 
-Believe it or not, I painstakingly entered the data for the world map
-used by the program by hand using an Atlas during a long week. If you
-just want to see the map of the world by itself without any astro-graph
-lines on it, use the -XW switch.
+Astrolog supports chart spheres, which are like standard chart wheels
+but in 3D. Chart spheres make it easy to see the ecliptic latitude of
+planets in addition to their zodiac longitude. They are most similar to
+the -Z switch graphic local horizon charts, except instead of being a
+flat rectangular map, the celestial sphere is rendered like a globe.
+
+In a chart sphere, its equator marks the plane of the local horizon.
+Lines are drawn from the center in the four directions, which are
+labeled around the horizon. Between the zenith point straight up, and
+the nadir point straight down, can be seen the prime vertical running
+through the east and west points on the horizon, and the meridian
+running through the north and south points on the horizon. The 3D
+boundaries of the 12 houses can be seen, in which houses 1-6 are below
+the horizon and houses 7-12 are above, and in which houses 1-3 and 10-12
+are east of the meridian and houses 4-9 are west of the meridian.
+Display of the houses can be toggled with the 3D houses flag (-c3
+switch, or the Setting / House Settings / 3D Houses command, or with the
+"a" key). In addition, the ecliptic and the 12 zodiac sign wedges are
+displayed. Display of signs can be toggled with the Vedic format flag
+(-J switch, or the Setting / House Settings / Vedic Wheel Display
+command, or with the "z" key).
+
+Planets will be plotted on the surface of the sphere based on their
+zodiac position and latitude locations. Most planets will be on or near
+the ecliptic, except for asteroids and especially fixed stars. Aspect
+lines will be drawn through the middle of the sphere. If aspect lines
+make the display too cluttered, the orbs can be reduced or aspects
+turned off altogether.
+
+The sphere overlaps its "near" and "far" sides, with the far side solid,
+and the near side semitransparent in which planets and such are rendered
+in gray. This simulates the viewer being inside the sphere, focusing
+upon what is in distance, such as a person looking south toward the
+ecliptic assuming a northern hemisphere chart location. If the -XX
+switch is invoked as -XX0 instead, the transparency will be reversed and
+the near side will be solid and the far side semitransparent, as if one
+were outside the sphere looking upon its surface. In the Windows
+version, the "Globe Halves Focus On Southern Hemisphere" flag in the
+Graphics Settings dialog controls this, and can be toggled with the
+Graphics / Modify Chart command. If you don't want any overlap at all,
+turn on the modify display flag (with the -Xi switch, or the Graphics /
+Modify Display menu command) and only the solid half of the sphere will
+be drawn.
+
+Similar to Astrolog's -XG switch globe display, the chart sphere can be
+rotated and tilted. Two optional parameters to the -XX switch indicate
+how much the sphere should be rotated around its axis, and how much it
+should be tilted toward or away from the viewer. While a window is up,
+the sphere can be rotated left and right with the "{" and "}" keys (or
+the Graphics / Globe Tilt / Rotate West and Rotate East menu commands),
+and can be tilted with the "\[" and "\]" keys (the Graphics / Globe Tilt
+/ Tilt North and Tilt South commands). Rotating and tilting is a good
+way to better visualize the sphere and its contents.
+
+**-XW:** Simply display an image of the world map.
+
+I painstakingly entered the data for the world map used by the program
+by hand using an atlas during a long week. If you just want to see the
+map of the world by itself without any astro-graph lines on it, use the
+-XW switch.
+
+If the 3D houses setting is active (-c3 switch), then overlaying the
+world map will be shown the Earth's ley line locations. Ley lines are
+spiritual lines of energy crossing the Earth. I was experimenting with
+the master ley line grids on the Earth (in the pattern of an overlapped
+20 sided Icosahedron and 12 sided Dodecahedron) and I figured Astrolog
+with its world map would be an interesting program to explore them with.
+This belongs more to the field of dowsing than to astrology, but I
+figured I would make it available for amusement and inspiration.
 
 **-XW0:** Like -XW but do a non-rectangular Mollewide projection.
 
@@ -4537,45 +4772,45 @@ Mollewide projection pinches the polar regions together, generating a
 elliptical map, which is similar to the -XG globe displays, but which
 shows the whole world instead of just half.)
 
-**-XG \[\<degrees\> \[\<degrees\>\]\]:** Display image of world as a
-globe.
+**-XG\[0\] \[\<degrees\> \[\<degrees\>\]\]:** Display image of world as
+a globe.
 
-Once we have the data for the map of the world, there are several neat
-things we can do with it; for instance, with a little trigonometry and
+Given the data for the map of the world, there are several nice things
+we can do with it. For instance, with a little trigonometry and
 clipping, we can bring up a view of a globe, which is what the -XG
 switch does. An optional argument will specify a rotation value in
-degrees to display different parts of the globe. (The globe seems to
-look best for a -Xw window size of around 350.)
+degrees to display different parts of the globe.
+
+This graphic globe display can be displayed semitransparently, with the
+continents or constellations on the back side of the globe drawn in a
+dotted fashion. Select this option with the new -XG0 subswitch, or by
+turning on "Globe Halves Focus On Southern Hemisphere" in Graphics
+Settings. In the Windows version, this can be toggled with the "Graphics
+/ Modify Chart" command.
 
 Note that the -XW and -XW0 maps can be animated like as this -XG globe
 display can. Animation of these maps are done by shifting the whole map
-to one side or the other. In fact, such a feature can be used indirectly
-to shift one of the X window astro-graph charts (which are drawn on the
-world map) from the normal case of having the date line on the edges of
-the screen: Go into the world map or globe display, animate it a bit,
-and then change graphic modes to display the astro-graph chart, and it
-will be shifted by the corresponding amount. (Note that animating the
-astro-graph screen itself will change the chart info, not how the screen
-itself is done.) Because the -XW world map, and -XP polar globe display,
-can be animated just as the -XG general globe display can, the -XW and
--XP switches accept optional parameters on the command line that will
-specify what degree (from 0 to 359) to start the map at, just like the
--XG switch does. In addition, the -XG option itself accepts a second
+to one side or the other. Because the -XW world map and -XP polar globe
+display can be animated just as the -XG general globe display can, the
+-XW and -XP switches accept optional parameters on the command line that
+will specify what degree (from 0 to 359) to start the map at, just like
+the -XG switch does. In addition, the -XG option itself accepts a second
 optional parameter, which is the starting angle for the globe's tilt,
 from -90 to +90 degrees.
 
-**-XP \[\<degrees\>\]:** Like -XG but create globe from polar
+**-XP\[0\] \[\<degrees\>\]:** Like -XG but create globe from polar
 projection.
 
-The -XP option will generate a polar view of the Earth as a globe. This
-is like the -XG globe option except that the view is always from the top
-(or bottom). By default, the view is looking down on the north pole with
-0 deg W/E toward the bottom of the screen. (Animation mode will cause
-the view to spin about the center of the screen.) To see a view of the
-south pole hemisphere, go into the bonus information mode described
-above (\'i\' key). Again, like with all the other X window display
-modes, one can enter this display with a keystroke: press \'P\' in any
-Astrolog window and it will revert to this display.
+The -XP option will generate a polar view map of the Earth. This is
+similar to the -XG globe option except that the view is always with the
+north pole in the middle, and the opposite pole around the outer edge.
+By default, the view is looking down on the north pole with 0 deg W/E
+toward the bottom of the screen. (Animation mode will cause the view to
+spin about the center of the screen.) To see a view centered on the
+south pole, invoke this switch as -XP0 instead. Again, like with all the
+other windowed display modes, one can enter this display with a
+keystroke: press \'P\' in any Astrolog window and it will change to this
+display.
 
 **-XF:** Display maps as constellations on the celestial sphere.
 
@@ -4619,6 +4854,14 @@ corresponding to the animation rates obtained by pressing shift 1..9 in
 the window, i.e. update whatever chart is passed to it seconds, minutes,
 hours, days, months, years, etc. later each time.
 
+**-XN:** Map animates chart time instead of rotating map itself.
+
+This flag controls whether animating a map display (such as a globe,
+map, or chart sphere) will animate the orientation of the map itself or
+the time of the chart within the map. By default map displays animate
+the map orientation, however this option allows one to animate the chart
+within the map.
+
 **-XM\[2-4\]\[0\] \<strings\>:** Define macro(s) to run when chart
 drawn.
 
@@ -4641,12 +4884,12 @@ other Astrolog tables.
 
 For the Windows version only, this obscure switch allows one to invoke a
 menu command from a command line, taking one numeric parameter
-indicating the item to run. Values 40001 through 40249 are valid menu
+indicating the item to run. Values 40001 through 40252 are valid menu
 commands, where the list of what number corresponds to what command is
 in the resource.h source file. An example use of this is to put "-W
 40041" in your astrolog.as file which will start the program with the
 "Chart Resizes Window" setting on by default. Another example is having
-"-W 40223" on the command line of the program's icon to have the Chart
+"-W 40226" on the command line of the program's icon to have the Chart
 Info dialog come up on startup.
 
 **-WN \<1-32000\>:** Set animation update delay in milliseconds.
@@ -4683,12 +4926,23 @@ large transit search, and doesn\'t want to wait after each modification.
 
 **-Wo:** Continually autosave graphics screen to bitmap file.
 
-In the Windows version, this switch switch causes the program to
-automatically save a bitmap of the current graphics screen to a bitmap
-file "astrolog.bmp", whenever the screen is updated. This specialized
-feature allows external programs to get the current state of Astrolog's
-screen, which can be used for scenarios such as creating the following
-video: <https://www.youtube.com/watch?v=euxwoyekZow>
+In the Windows version, this switch causes the program to automatically
+save a bitmap of the current graphics screen to a bitmap file
+"astrolog.bmp", whenever the screen is updated. This specialized feature
+allows external programs to get the current state of Astrolog's screen,
+which can be used for scenarios such as creating the following video:
+<https://www.youtube.com/watch?v=euxwoyekZow>
+
+**-Wo0:** Continually autosave graphics screen to numbered files.
+
+In the Windows version, this switch causes the program to automatically
+save a bitmap of the current graphics screen to a continually increasing
+sequence of bitmap files whenever the screen is updated, to
+"ast00000.bmp", "ast00001.bmp", and so on. Each time the -Wo0 switch is
+invoked, the counter will be reset to zero. This specialized feature
+allows external programs to see a list of Astrolog screenshots, which
+can be used for scenarios such as creating animated GIF's:
+<http://www.astrolog.org/astrolog/screen/globe.gif>
 
 **-WSg:** Setup Windows program group, for current user only.
 
@@ -4718,13 +4972,10 @@ shortcut for the combination of "-WSg -WSd -WSx").
 
 In the Windows version, this switch undoes the effect of the previous
 switch, and unassociates Astrolog from ".as" extension files, which is
-useful for uninstall. Note the last two switches edit the Windows
-registry, which is protected on Vista and newer versions of Windows,
-meaning the command may fail and display an error message. Hence
-Astrolog may need to be run as Administrator in order for the program to
-have permission to change the registry.
+useful for uninstall. Note these last two switches edit the current
+user's settings within the Windows registry.
 
-Astrolog (version 6.20) obscure command switches:
+Astrolog (version 6.30) obscure command switches:
 
 **-Y:** Display help list of less commonly used command switches.
 
@@ -4769,8 +5020,7 @@ have topocentric positions on (and true positions off).
 
 This switch allows you to set whether the North Node in Astrolog (object
 number 16) is the Mean or the True node of the Moon. The mean Node is
-the default, but toggling on the -Yn flag will do the True node. (The
-default may also be set at compile time via the TRUENODE \#ifdef.)
+the default, but toggling on the -Yn flag will do the True node.
 
 **-Yd:** Display dates in D/M/Y instead of M/D/Y format.
 
@@ -4861,13 +5111,29 @@ zero, the feature will be turned off and Astrolog will print
 continuously until done. This helps those who may be concerned about the
 program scrolling things off the screen before they can read it. Without
 this one would have to press Ctrl-S to have the system pause printing,
-send output to a file, or be on a system with scrollbars to see
-everything. This feature is on by default and set to 24 lines, although
-this can be changed easily in the astrolog.as file. When the program is
-paused, one can type a couple things before pressing return: Entering
-\'q\' will terminate the program, entering \'Q\' will turn off the
-feature and scroll until done, \'8\' will toggle the right hand column
-clipping setting, and \'k\' will toggle the Ansi color setting.
+send output to a file to inspect afterward, or be on a system with
+scrollbars to see everything. This feature is off by default, but can
+easily be changed to a common screen height such as 24 rows in the
+astrolog.as file. When the program is paused, one can type a couple
+things before pressing return: Entering \'q\' will terminate the
+program, entering \'Q\' will turn off the feature and scroll until done,
+\'8\' will toggle the right hand column clipping setting, and \'k\' will
+toggle the Ansi color setting.
+
+**-Yq\[0-9\] \<strings\>:** Define command lines to run and show in
+sequence.
+
+This obscure switch allows appending multiple text charts within a
+single display. It takes between 0-9 parameters, depending on whether
+it's invoked as -Yq0, -Yq1, and so on. If there's no digit character
+after -Yq, then it's assumed to have zero parameters, and will turn off
+this feature. Astrolog will treat each parameter as a command line, and
+then display the resulting chart after each command line is processed.
+This is basically equivalent to having a batch script invoke Astrolog
+several times in a row and appending the results together. For example,
+"-Yq2 '-n \_e =dm -R0 Sun Moo -A 0 -RA Opp -YR0 1 1' '-i set \_e \_d
+\_YR Mer Eas 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0'" will cast a chart
+for the time of the Full Moon this month.
 
 **-Yo:** Output chart info and position files in old style format.
 
@@ -4977,6 +5243,53 @@ won't change, but the positions will reflect the new object. Note this
 feature requires Swiss Ephemeris to be active (which it is by default)
 in order to take effect.
 
+**-Yeb \<obj\> \<index\>:** Change orbit of Uranian to external
+ephemeris.
+
+Astrolog can access custom bodies whose positions are in external Swiss
+Ephemeris format ephemeris files (such as Eris and Sedna) with the -Yeb
+switch. This is similar to the -Ye switch which allows accessing the
+orbital elements of fictitious bodies in the seorbel.txt file. Simply
+download the desired ephemeris file from
+<ftp://ftp.astro.com/pub/swisseph/ephe/> and place it in the same
+directory as the other ephemeris files. Pass the number of the ephemeris
+file to the -Yeb switch, and the Uranian object in question will be
+replaced with the positions of the new object. For example, to show the
+position of Eris, download
+<ftp://ftp.astro.com/pub/swisseph/ephe/ast136/s136199.se1> and then do
+"-Yeb Cup 136199" to replace the position of Cupido with Eris. See
+<http://www.astro.com/swisseph/astlist.htm> for an index of which
+asteroids map to which numbers. You may also want to change the object's
+name and graphic glyph to complete the customization.
+
+**-YeO \<obj1\> \<obj2\>:** Change orbit of Uranian to internal planet.\
+**-Ye\[bO\]n \<obj\> \<index\>:** Change Uranian to North Node of
+object.\
+**-Ye\[bO\]s \<obj\> \<index\>:** Change Uranian to South Node of
+object.\
+**-Ye\[bO\]a \<obj\> \<index\>:** Change Uranian to apihelion of
+object.\
+**-Ye\[bO\]p \<obj\> \<index\>:** Change Uranian to perihelion of
+object.
+
+Astrolog can access the nodes and helion points of planets, by defining
+them as custom bodies. The -Ye command switch can be invoked in four
+different ways to select these points: -Yen for the north or ascending
+node, -Yes for the south or descending node, -Yep for the perihelion
+point or point on its orbit nearest the Sun, and -Yea for the aphelion
+point or point farthest from the Sun. These four points exist in space,
+and the planet in question will pass through them along its orbit. As
+with the Moon's nodes, Astrolog's true node vs. mean node setting (-Yn
+switch) will influence these positions. The -Ye switch is invoked in one
+of three ways to indicate the type of object in question: -Ye by itself
+for fictitious bodies in seorbel.txt, -Yeb for asteroids in custom
+ephemeris files, and -YeO for an existing planet in Astrolog's standard
+list. For example, "-Yen Cup 9" redefines Cupido's slot to be the north
+node of Transpluto or seorbel.txt object \#9, "-Yebs Cup 9" redefines
+Cupido to be the south node of the asteroid Metis assuming se00009s.se1
+has been downloaded, and "-YeOa Cup 9" redefines Cupido to be the
+aphelion point of Neptune or Astrolog object \#9.
+
 **-YE \<obj\> \<semi-major axis\> \<eccentricity (3)\> \<inclination
 (3)\> \<perihelion (3)\> \<ascending node (3)\> \<time offset (3)\>:**
 Change orbit of object to be the given elements.
@@ -5007,8 +5320,24 @@ factors applied on top of their main elements for Jupiter through Pluto,
 hence it's recommended to only redefine asteroids, Uranians, or inner
 planets. The following example will roughly move Venus into Earth's
 orbit: "-YE 4 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 23000". Note this feature
-requires the Matrix formulas (-bm switch) to be on in order to take
+requires the old Matrix formulas (-bm switch) to be on in order to take
 effect.
+
+**-YU \<obj\> \<name\>:** Change position of star to sefstars.txt entry.
+
+Astrolog's list of stars can be customized. The -YU command switch takes
+two parameters: The existing object index or star name to replace, and a
+string for a star name from the file sefstars.txt in the Astrolog
+install directory to compute instead. This star name can be the
+traditional or common name in the first column of the file, or the
+scientific nomenclature name in the second column of the file if the
+name starts with a comma. For example, "-YU Acheron Deneb" or "-YU 43
+,alCyg" will both replace the star Acheron (object \#43) with the star
+Deneb or Alpha Cygni. You may also want to change the object's name to
+complete the customization. If a star is renamed to "" or the empty
+string, then that will turn off customization for that slot, and return
+to Astrolog's internal default. This feature requires Swiss Ephemeris to
+be the active method of star computation in order to work.
 
 **-YR \<obj1\> \<obj2\> \<flag1\>..\<flag2\>:** Set restrictions for
 object range.
@@ -5259,12 +5588,14 @@ parameters. The first two parameters are the low and high object indexes
 to change. The next parameters are the new colors for objects within
 that range. If a color is "Element" (or the number 16), that means use
 the element color of the sign the planet rules (which is the default
-color setting for the main planets and house cusps). If a color is "Ray"
-(or the number 17), that means use the color of the Ray associated with
-the planet. Note that signs will use the colors of the house cusp
-objects corresponding to them, e.g. the Pisces glyph and zodiac
-positions in Pisces will be printed in the color of the 12th house cusp
-object.
+color setting for the main planets and house cusps). Note that the color
+"Element" will use either standard, esoteric, or Hierarchical rulers,
+depending on the rulership restrictions (as set with the -YR7 switch).
+If a color is "Ray" (or the number 17), that means use the color of the
+Ray associated with the planet. Note that signs will use the colors of
+the house cusp objects corresponding to them, e.g. the Pisces glyph and
+zodiac positions in Pisces will be printed in the color of the 12th
+house cusp object.
 
 -YkC \<col1\> \<col2\> \<col3\> \<col4\> switch: This switch defines the
 colors used for the four elements, and takes four parameters, for fire,
@@ -5310,6 +5641,17 @@ from LtGray to Yellow, do "-Yk 2 2 yellow". (Note that you can use this
 to even "change" the colors Black and White to draw graphics on whatever
 background color you want.)
 
+**-YD \<obj\> \<name\>:** Customize display name of object.
+
+Astrolog can change the name of objects, or what string is used to
+display them in charts. The -YD command switch takes two parameters: The
+object index to rename, and the string to use when displaying it. Object
+names must be at least three characters long, and anything shorter will
+make the object revert back to its default name. Note that renaming
+objects only changes how they're displayed in charts, which means
+command switches and such still need to refer to the object by its
+default name.
+
 **-YXG \<0-2\>\<0-2\>\<0-3\>\<0-2\>:** Select among different graphic
 glyphs for Capricorn, Uranus, Pluto, and Lilith.
 
@@ -5335,24 +5677,81 @@ also choose the digit "3", which is the upward pointing arrow glyph used
 in esoteric astrology.) For example, "-YXG 0120" leaves the glyphs for
 Capricorn and Lilith at their present setting, sets Uranus to be the
 "Herschel" glyph, and Pluto to be the astronomical "P" glyph. The
-default selection is "1111", but many astrologers on the Eastern side of
-the Atlantic may prefer "2222".
+default selection is "1111", but many astrologers East side of the
+Atlantic may prefer "2222".
+
+**-YXD \<obj\> \<string1\> \<string2\>:** Customize glyphs for planet.
+
+Astrolog can change the glyphs used to display objects in graphics
+charts. The -YXD switch takes three parameters: The object index to
+rename, and two strings which contain the small and large definitions to
+use for the object's glyph. The small definition measures 9x9 units (and
+is used when drawing in the small 100% character scale), and the large
+definition measures 17x17 (and is used when drawing in the medium 200%
+character scale). If the large definition is the empty string then a
+double scale version of the small glyph will be used for it, and if the
+small definition is the empty string then the default glyph for that
+object will be used. Glyphs are drawn in vector format by moving a pen
+(similar to the "draw" command in the BASIC programming language) and
+drawing starts from the middle unit coordinate. Strings consist of a
+sequence of actions, each of which starts with a character indicating
+how to move the pen, following by a number indicating how many units to
+move in that direction (no number defaults to one unit).
+
+The action characters "U", "D", "L", and "R" move up, down, left, and
+right. Similarly, "E", "F", "G", and "H" move 45 degrees up and to the
+right, down and to the right, down and left, and up and left. The action
+prefix "B" before one of the directions means "blank", and moves the pen
+without drawing a line while moving. The prefix "N" before one of the
+directions means "no update", and doesn't move the pen after drawing a
+line. For example, the default small glyph for Jupiter is:
+"BH3RFDGDGDR5NDNR2U6E". Special case: If a definition consists of "T"
+then don't do any pen drawing at all, but instead use the three letter
+abbreviation of the object name for display, like is done with fixed
+stars.
+
+**-YXv \<type\> \[\<size\> \[\<lines\>\]\]:** Set wheel chart
+decoration.
+
+This switch specifies how to decorate the corners of wheel charts.
+Parameter \#1 is 0 for no decoration, 1 for a spider web pattern, or 2
+for a Moiré pattern. Parameter \#2 is optional, and indicates how far
+along the edge of the wheel chart the decoration extends, as a
+percentage from 1 to 100. For example, if this is 50 then the patterns
+in each corner will just touch those in adjacent corners. Note that
+values too high will impede display because they'll start overlapping
+the wheel itself. Parameter \#3 is also optional, and indicates how many
+lines are used to compose the spider web pattern.
 
 **-YXg \<cells\>:** Set number of cells for graphic aspect grid.
 
 This sets the size of the graphic -g aspect and midpoint grids, i.e. the
-number of cell rows and columns available to draw items in. Aspect grids
-by default are always 20 by 20 cells (21 by 21 for the -r0 relationship
-comparison grids counting the index row) to account for the default
-number of objects active. If this size value is too high (or objects are
-restricted), there will be unused rows at the bottom, while if it's too
-low (or objects are added), rows will be clipped off the bottom.
+number of cell rows and columns available to draw items in. If this size
+value is too high (or too many objects are restricted), there will be
+unused rows at the bottom, while if it's too low (or too many objects
+are added), rows will be clipped off the bottom. If the grid size is set
+to zero, then the size to use will be the number of unrestricted objects
+present, and the chart will automatically resize as planets are
+(un)restricted.
 
 **-YX7 \<inf\>:** Set influence width for graphic esoteric ephemeris.
 
 This number specifies the width in influence units of each Ray's column
 in the esoteric graphic ephemeris. For example, given "-YX7 600", then a
 Ray influence value of 400 will fill 2/3 of the column.
+
+**-YXk:** Use more color for sign boundaries in graphics charts.\
+**-YXk0:** Use more color for house boundaries in graphics charts too.
+
+The -YXk switch will cause graphics charts to highlight zodiac sign
+boundaries in extra color. For example, wheel charts, solar system orbit
+charts, and the graphic ephemeris will have sign boundaries drawn in the
+color of each sign instead of always in grayscale. This also influences
+the display of chart spheres, and local horizon charts when 3D houses
+are on. If the switch is invoked as -YXk0 instead, then the 12 houses
+will be highlighted in extra color as well. Some may find the extra
+coloring makes charts stand out more, while others may find it to be too
+much and actually make charts harder to read.
 
 **-YXf \<val\>:** Set usage of actual system fonts in graphic file.
 
@@ -5388,6 +5787,10 @@ centimeters, and if it ends in "in" then it will be parsed as inches. If
 there's no units, then it will be parsed based on the -Yv metric switch
 setting.
 
+**-YB:** Make a beep sound at the time this switch is processed.
+
+This obscure switch just sounds a generic system beep.
+
 **-0\[o,i,q,X\]:** Disallow file output, input, exiting, and graphics.
 
 This obscure switch is invoked in one of four forms: -0o, -0i, -0q, or
@@ -5399,23 +5802,22 @@ subswitches above. Once a section is disabled, it is that way
 permanently and can not be turned back on until the program quits.
 Attempting to access a restricted feature will display an appropriate
 error message or at least do nothing. This switch was meant to be used
-when Astrolog is being run from a chart server, a BBS, as a demo, or
-related situation. For example, if one set up Astrolog on the Net to be
-able to receive chart requests including arbitrary command lines where
-the result is e-mailed back to the user, the administrator probably
-wants to prevent the client from using the -o switch to create or
-potentially overwrite files on the server, in which case -0o can be put
-in the astrolog.as file to prevent file output before the client gets a
-chance to do anything. Similarly, -0i can be used to prevent the client
-from using -i to read in private files on the server. If the server only
+when Astrolog is being run from a chart server, as a demo, or related
+situation. For example, if one set up Astrolog on a network to be able
+to receive chart requests including arbitrary command lines where the
+result is e-mailed back to the user, the administrator probably wants to
+prevent the client from using the -o switch to create or potentially
+overwrite files on the server, in which case -0o can be put in the
+astrolog.as file to prevent file output before the client gets a chance
+to do anything. Similarly, -0i can be used to prevent the client from
+using -i to read in private files on the server. If the server only
 e-mails text back to the user, you probably don\'t want the server copy
 of the program going into interactive graphics mode waiting for someone
 to pass it keystrokes, in which case -0X can be used. Finally, -0q might
 be useful in demo situations where people can play with the program but
 you don\'t want them exiting it. In this last case, the only way to stop
-the program is to kill the process; a Control-C should stop the DOS or
-Unix versions, but you\'ll probably have to exit Windows to terminate
-Astrolog if a -0q is done in the Windows version.
+the program is to kill the process (although a Control-C should stop
+command line or Unix versions).
 
 **-;:** Ignore rest of command line and treat it as a comment.
 
@@ -5425,29 +5827,28 @@ allows the semicolon (usually used by itself without the optional dash
 prefix of course) to be used to begin comments and for comment lines in
 the various command files.
 
-Astrolog graphics screen key press options (version 6.20):
+Astrolog graphics screen key press options (version 6.30):
 
 (Note: When a graphics chart is up, pressing a key which doesn\'t do any
 of the operations below will sound a beep.)
 
 **Press \'H\' or \'?\'** to display this list of key options.
 
-The most important key, of course. Pressing this will display a help
-list of all the key presses available in the text screen from which the
-window was invoked from.
+Pressing this will display a help list of all the key presses available
+in the text screen from which the window was invoked from.
 
 **Press \'p\'** to toggle pause status on or off.
 
 Press this to pause all automatic updates to the window or screen. This
-is mainly used to temporarily freeze any animation (see below) so a
-particular chart can be looked at without interruption. When animation
-is on but temporarily paused with this key, the mouse (inactive for the
-purpose of scribbling during animation) will come active again. Related
-to this, the number keys which set the rate of animation, but for PC's
-scroll the chart when not in animation mode, will do the scrolling
-instead of setting the rate when animation is paused then.
+is mainly used to temporarily freeze any animation so a particular chart
+can be looked at without interruption. When animation is on but
+temporarily paused with this key, the mouse (inactive for the purpose of
+scribbling during animation) will come active again. Related to this,
+the number keys which set the rate of animation, but for PC's scroll the
+chart when not in animation mode, will do the scrolling instead of
+setting the rate when animation is paused then.
 
-**Press \'x\'** to toggle fg/bg colors on screen.
+**Press \'x\'** to toggle foreground/background colors on screen.
 
 Pressing this will invert the colors on the screen, or in other words
 will do the same thing as the -Xr switch on the command line.
@@ -5593,13 +5994,11 @@ then too big or small for the new chart.
 **Press \'\[\' and \'\]\'** to decrease/increase tilt in globe display.
 
 \'\[\', \'\]\' keys: Not only can the globe display be rotated, but the
-poles can be tilted down at various angles! (This basically makes the
--XP polar globe view option obsolete; it's still in there only for
-backwards compatibility.) Press the \'\[\' and \'\]\' keys when the
-globe is being displayed to respectively "pull down" and "push back up"
-the angle of the polar axis from which the globe is viewed. Combining
-this with the globe rotation allows one to move any point of the globe
-to the center of the screen.
+poles can be tilted down at various angles! Press the \'\[\' and \'\]\'
+keys when the globe is being displayed to respectively "pull down" and
+"push back up" the angle of the polar axis from which the globe is
+viewed. Combining this with the globe rotation allows one to move any
+point of the globe to the center of the screen.
 
 **Press \'+\' and \'-\'** to add/subtract a day from current chart.
 
@@ -5623,7 +6022,7 @@ uncommented of course.)
 **Press \'N\'** to toggle animation status on or off. Charts will be
 updated to current status and globe will rotate.
 
-Animation! This key will toggle in and out of a mode where the chart is
+Animation: This key will toggle in and out of a mode where the chart is
 continually updated in the window. Entering the animation mode will
 cause the chart being currently displayed to be replaced by the chart
 for the exact moment at the time you are running the program. Every
@@ -5662,8 +6061,8 @@ added each time (now you will probably want to start using -R to remove
 fast moving objects like the moon), and pressing \'%\' will have one
 month added for each update of the window. The final keys, shift 6..9
 cause years, decades, centuries, and millennia to be added each time,
-and tend to only be used to look for long range actions (when will
-Neptune next enter Pisces, etc.) To exit these animation modes, press
+and tend to only be used to look for long range actions (such as when
+will Neptune next enter Pisces). To exit these animation modes, press
 the \'N\' key.
 
 **Press \'r\'** to reverse direction of time-lapse or animation.
@@ -5678,38 +6077,29 @@ direction.
 **Press \'1\'-\'9\'** to set rate of animation to \'n\' degrees, etc.
 
 The nine number keys are used to set the relative "rate" of animation to
-"n" whatevers. For example, normally the "@" key means add one minute to
-the chart for each update, but press "5" and now we are adding 5 minutes
+"n" units. For example, normally the "@" key means add one minute to the
+chart for each update, but press "5" and now we are adding 5 minutes
 each time. For the Globe animation, by default the Earth rotates one
 degree each time; however, the number keys can speed this up to nine
 degrees for each update.
 
-**Press \'1\'-\'9\'** to determine section of chart to show if clipped.
-
-For PC systems only, see the section on PC graphics for this additional
-feature accessed through the number keys. Note when pressing numbers to
-set the animation rate or the section of a PC graphics screen to view,
-the numeric keypad will work for PC's even if numlock isn\'t on. It
-would be annoying to press a number on the keypad only to pass some
-random characters to Astrolog because you forgot to turn on numlock.
-
 **Press
-\'V\',\'A\',\'Z\',\'S\',\'M\',\'K\',\'J\',\'L\',\'E\',\'W\',\'G\',\'P\'**
+\'V\',\'A\',\'Z\',\'S\',\'M\',\'K\',\'J\',\'L\',\'E\',\'X\',\'W\',\'G\',\'P\'**
 to switch to normal (-v), grid (-g), local (-Z), space (-S), sector
 (-l), calendar (-K), dispositor (-j), astro-graph (-L), ephemeris (-E),
-world map (-XW), globe (-XG), and polar (-XP) modes.
+sphere (-XX), world map (-XW), globe (-XG), polar (-XP) modes.
 
-There are basically twelve main modes in which the graphics screen can
-be in: There are the nine main charts (wheel, aspect grid, local sky,
-space view, Gauquelin sector, calendar, dispositor, astro-graph, and
-ephemeris) as well as the three world displays (the simple map by
-itself, the globe view, and the polar projection). These twelve keys can
-be used to switch between these modes in the middle of program
-execution. For example, you can bring up your own chart in a window,
-then press \'L\' to see the astro-graph chart for the same birth data.
-Then you can press \'W\' to just see the world map by itself, and \'G\'
-to see the globe view, after which you can press \'V\' to return to your
-original wheel chart.
+There are basically 13 main modes in which the graphics screen can be
+in: There are the nine main charts (wheel, aspect grid, local sky, space
+view, Gauquelin sector, calendar, dispositor, astro-graph, and
+ephemeris) as well as the four map displays (the chart sphere, the
+simple world map by itself, the globe view, and the polar projection).
+These 13 keys can be used to switch between these modes in the middle of
+program execution. For example, you can bring up your own chart in a
+window, then press \'L\' to see the astro-graph chart for the same birth
+data. Then you can press \'W\' to just see the world map by itself, and
+\'G\' to see the globe view, after which you can press \'V\' to return
+to your original wheel chart.
 
 **Press \'0\'** to toggle between -Z,-Z0 & -XW,-XW0 & -E,-Ey modes.
 
@@ -5722,8 +6112,8 @@ horizon chart, and I want to see the -Z0 -X sky graphic, then I press
 \'0\' to go to it. Similarly, this key will flip me back and forth
 between the -XW simple rectangular world map display and the -XW0
 Mollewide projection graphic, as well as the -E monthly ephemeris and
-the -Ey yearly ephemeris. A bit of a hack, but useful, and the only way
-to change these suboptions while the program is running.
+the -Ey yearly ephemeris. This is a quick way to change these suboptions
+while the program is running.
 
 **Press \'F\'** to toggle between world and constellation map modes.
 
@@ -5924,7 +6314,7 @@ Astrolog accepts. Listed for each zone is its official name, its
 standard abbreviation, its hours before GMT, and its standard meridian.
 For some zones the program accepts special two and one letter shortcuts:
 
-Time Zone Name           Abbrev.     Hours   Longit.
+Time Zone Name           Abbrev.     Hours   Longitude
 
 Hawaiian Standard Time   HST  HT  H  +10:30  157.5W
 
@@ -6183,8 +6573,8 @@ as everything the old files could set and a whole lot more. Attempting
 to use any old astrolog.dat file will cause the program to complain that
 it's not in any valid format. If you have an old file, delete it and
 modify the one included with this release to correspond to your desired
-settings. Version 4.20 through 6.10 config files are however fully
-compatible with 6.20 and don\'t need to be changed.
+settings. Version 4.20 through 6.20 config files are however fully
+compatible with 6.30 and don\'t need to be changed.
 
 \--
 
@@ -6284,9 +6674,9 @@ is a switch to set the actual positions of a planet. This is the -YF
 switch which takes eight parameters, which are: the index of the object
 to set the positions of, the degree within the sign of its position, the
 zodiac sign of its position, the minute within the degree of its
-position, the degree of its ecliptic declination, the minute within the
-degree of the declination (which should always be positive, e.g. for a
-declination of -10.5 degrees, the parameters would be -10 and 30), the
+position, the degree of its ecliptic latitude, the minute within the
+degree of the latitude (which should always be positive, e.g. for a
+latitude of -10.5 degrees, the parameters would be -10 and 30), the
 velocity in degrees per day (positive is direct motion, negative
 retrograde), and finally the distance from the Sun or central body in
 AU. This switch shouldn\'t really be used outside of -o0 files as it
@@ -6317,25 +6707,25 @@ astrolog.as initialization file, and ephemeris files is in the current
 directory and default directories set at compile time. The program will
 look where all of these environment variables point, if they are
 defined. The three environment variables are named "ASTROLOG",
-"ASTR6.20", and "ASTR". On a PC you can set an environment variable from
+"ASTR6.30", and "ASTR". On a PC you can set an environment variable from
 the DOS prompt with a command such as "set
 ASTROLOG=C:\\PROGRAMS\\ASTRO610\\CHARTS". This command can be put in
 your AUTOEXEC.BAT file to remain persistent. On a Unix system you can
 set an environment variable from the shell with a command such as
 "setenv ASTROLOG \~username/programs/astro610/charts". This line can be
-put in your .cshrc file to remain persistent. Note that the ASTR6.20
+put in your .cshrc file to remain persistent. Note that the ASTR6.30
 environment variable is version specific, i.e. the previous version
-looked in one called ASTR6.10 instead. This allows one to have a
+looked in one called ASTR6.20 instead. This allows one to have a
 directory for version specific files such as the astrolog.as file, and
 have multiple versions of Astrolog on the system at once without them
 conflicting with each other. (Note that Unix systems running the ksh
-shell apparently don\'t accept variables like ASTR6.20 with periods in
+shell apparently don\'t accept variables like ASTR6.30 with periods in
 them, but they will accept the other two.) I personally point ASTROLOG
-to my chart files directory, ASTR6.20 to my astrolog.as directory, and
+to my chart files directory, ASTR6.30 to my astrolog.as directory, and
 ASTR to my ephemeris directory, although any file may be found with any
 of the variables. Specifically, when Astrolog searches for a file, it
 will look in the following directories, in order: The current directory,
-the ASTR6.20 environment variable directory, the ASTROLOG environment
+the ASTR6.30 environment variable directory, the ASTROLOG environment
 directory, the ASTR dir, and finally the compile time default directory.
 
 \--
@@ -6453,24 +6843,24 @@ windows.
 Probably the only thing more impressive than the graphics features are
 the graphics features displayed on color monitors. Here is how the
 colors have been assigned for the various charts: Four colors have been
-allocated for the four elements - Fire = Red, Earth = Brown, Air =
-Green, Water = Blue. The various sign glyphs (and the corresponding
-house labels) are in the color of their element. Planets are in the
-color of the sign of their main ruler. Chiron and the four asteroids are
-Pink, while the North Node, and other non-physical objects like the
-fortune and vertex are Blue Grey. Representations of the Ascendant/
-Descendant/ Midheaven/ Nadir (in the astro-graph map lines and
-elsewhere) are in the element color of the corresponding sign/house that
-the angular lines refer to, i.e. Ascendant = Red, Midheaven = Brown,
-Descendant = Green, Nadir = Blue. A few extra things have been added for
-color wheel charts only: dark gray lines marking off each house (in
-addition to the main lines on the horizon and meridian), and each degree
-instead of every 5th degree being marked in dark gray on the outer
-circle (every 5th degree being white). Aspects lines are colored too, as
-follows: Conjunctions = Yellow, Sextiles = Light Blue, Squares = Red,
-Trines = Green, Oppositions = Dark Blue. For the minor aspects we have:
-Inconjuncts/Semisextiles = Pink, Semisquares/ Sesquiquadratures = ,
-(Bi/Semi)Quintiles = Blue Grey, (Bi/Tri)Septiles = Maroon,
+allocated for the four elements which by default are: Fire = Red, Earth
+= Brown, Air = Green, Water = Blue. The various sign glyphs (and the
+corresponding house labels) are in the color of their element. Planets
+are in the color of the sign of their main ruler. Chiron and the four
+asteroids are Pink, while the North Node, and other non-physical objects
+like the fortune and vertex are Blue Grey. Representations of the
+Ascendant/ Descendant/ Midheaven/ Nadir (in the astro-graph map lines
+and elsewhere) are in the element color of the corresponding sign/house
+that the angular lines refer to, i.e. Ascendant = Red, Midheaven =
+Brown, Descendant = Green, Nadir = Blue. A few extra things have been
+added for color wheel charts only: dark gray lines marking off each
+house (in addition to the main lines on the horizon and meridian), and
+each degree instead of every 5th degree being marked in dark gray on the
+outer circle (every 5th degree being white). Aspects lines are colored
+too, as follows: Conjunctions = Yellow, Sextiles = Light Blue, Squares =
+Red, Trines = Green, Oppositions = Dark Blue. For the minor aspects we
+have: Inconjuncts/Semisextiles = Pink, Semisquares/ Sesquiquadratures =
+, (Bi/Semi)Quintiles = Blue Grey, (Bi/Tri)Septiles = Maroon,
 (Bi/Quatro)Noviles = Violet.
 
 For color terminals, the -XG globe display and -XW world map display are
@@ -6482,7 +6872,7 @@ that goes with each land mass. They are: Africa - red - Root chakra,
 Australia - orange - Navel chakra, South America - yellow - Solar plexus
 chakra, North America - green - Heart chakra, Europe - blue - Throat
 chakra, Asia - indigo - Third Eye chakra, Antarctica - violet - Crown
-chakra. Major lakes are colored navy blue, of course.
+chakra. Lakes within continents are colored dark blue.
 
 \--
 
@@ -6519,10 +6909,15 @@ planets as displayed in the wheel. All this information is in a
 "sidebar" to the right of the wheel which includes a listing not unlike
 the -v text chart. (Note that the size of this sidebar is such that for
 the default 480x480 pixel chart size, including the sidebar will make it
-640x480, which perfectly fills a VGA PC screen.)  If you want a simpler
-style wheel with just the chart information at the bottom of the
-graphic, set the -v0 flag, as in "-v0 -X" instead of "-v -X" or just
-"-X".
+640x480, which perfectly fills a VGA PC screen.) This sidebar supports
+relationship charts involving two or more charts, and for a relationship
+chart will list both sets of chart information (or all three or four
+sets in the case of tri and quad wheels). Each set of chart information
+will be properly labeled, such as synastry chart sidebars will indicate
+which set of chart information is determining the houses and which the
+planets. If you want a simpler style wheel with just the chart
+information at the bottom of the graphic, set the -v0 flag, as in "-v0
+-X", instead of "-v -X" or just "-X".
 
 **-w -X:** A different way of formatting the graphical wheel charts
 described above is available by combining the -w switch with -X.
@@ -6853,18 +7248,6 @@ can be processed so the program must be manually terminated, and that
 the continual updates will be as CPU intensive as the window animations
 are.
 
-Hack: A fun thing to do is that a graphic wheel chart with -I
-interpretation on (the interpretation setting normally doesn\'t affect
-graphics in any way) will decorate the corners around the wheel! How its
-decorated depends on the screen width setting in astrolog.as or passed
-to -I. If this value is even, a spider web design will be put in each
-corner. If this value is odd, a moire pattern will be put in each
-corner. The decoration looks best when the screen width is around 79 or
-80. The higher the value, the more dense the lines will be in the
-"spider webs", or the less of the screen the moire will cover. (Don\'t
-make the moire value too low or you will cover the entire screen, which
-looks cool but doesn\'t aid reading the chart any! :)
-
 Text in graphics charts is done using Astrolog's own internal font. This
 font includes glyphs for the high-Ansi 128-255 character range. These
 glyphs cover the common Windows-1252 codepage, which is a superset of
@@ -6889,8 +7272,8 @@ things are still available. :)
 Not counting the About box and the standard Windows open file, save
 file, and printing items, Astrolog contains 16 dialogs, a couple of
 which are also shared by more than one command. There are nine top level
-menus not counting the system menu, which have among them 119 different
-options, or 249 counting all second level submenus! In using the
+menus not counting the system menu, which have among them 120 different
+options, or 252 counting all second level submenus! In using the
 dialogs, one should specify or enter the appropriate settings, and then
 press "OK" for them to take effect, or "Cancel" to discard any changes
 made. On pressing "OK", the program will check all the fields for
@@ -6932,9 +7315,9 @@ will draw a rectangle with opposite corners at the location last clicked
 and the current position. Doing Control+Shift+click will draw an ellipse
 with opposite corners at the two positions clicked. Finally, when the
 current display is either the world map or an astro-graph chart, one may
-click the right mouse button on the map to relocate the chart to the
-spot on the world clicked upon, which will change the longitude and
-latitude of the current chart info in memory.
+do Alt+click or click the right mouse button on the map to relocate the
+chart to the spot on the world clicked upon, which will change the
+longitude and latitude of the current chart info in memory.
 
 The window that the charts are drawn in has horizontal and vertical
 scrollbars on it. For charts that are just text, the scrollbars may be
@@ -6992,8 +7375,12 @@ switch, just that it only sets the contents of \<file2\>.\]
 
 **Save Chart Info\...:** This brings up the standard Windows save file
 dialog, allowing one to enter a filename, which will be created and the
-time and location of the current chart will be written to it. Note that,
-as with all of Astrolog's Save dialogs, this will query for a
+time and location of the current chart will be written to it. If a file
+is specified without the extension delimiter \".\" in the name, then the
+default extension ".as" will automatically appended. If for some reason
+one really does want to save a file without any extension, they should
+just append a "." to the filename to give it a zero length extension.
+Note that, as with all of Astrolog's Save dialogs, this will query for a
 confirmation before overwriting or replacing existing files. \[This does
 the same as the -o \<file\> switch.\]
 
@@ -7230,15 +7617,15 @@ text output to file or copying text to the clipboard to remove the
 control characters which cause the color changes. \[This does the same
 as the -k switch.\]
 
-**Set Colors\...:** This brings up the Customize Colors dialog. One may
-use the various combo controls to change the colors used in graphics and
+**Set Colors\...:** This brings up the Set Colors dialog. One may use
+the various combo controls to change the colors used in graphics and
 text charts, by selecting a color from a dropdown, or by entering its
-name or abbreviation or index from 0-15. The Elements group covers the
-colors used for the four elements. \[This does the same as the -YkC
-switch.\] The Aspects group covers the colors used for the 18 aspects.
-\[This does the same as the -YkA switch.\] The Standard Color Palette
-covers all other uses of color. \[The sixteen settings here do the same
-as the sixteen settings covered by the -Yk0 and -Yk switches.\]
+name or abbreviation or index from 0-15. The Standard Color Palette
+covers generic uses of color. \[The sixteen settings here do the same as
+the sixteen settings covered by the -Yk0 and -Yk switches.\] The
+Elements group covers the colors used for the four elements. \[This does
+the same as the -YkC switch.\] The Seven Rays group covers the colors of
+the esoteric Rays. \[This does the same as the -Yk7 switch.\]
 
 **Show Interpretations:** This toggles whether or not interpretations
 are given for text charts. \[This does the same as the -I switch.\]
@@ -7365,7 +7752,10 @@ house division to use. \[This does the same as the -c switch.\]
 
 **Solar Chart:** This option on the House Settings submenu toggles
 whether or not the houses are rotated to put the Sun on the Ascendant
-for a solar chart. \[This does the same as the -1 switch.\]
+for a solar chart. Note that a check mark will be by this command when
+the houses are rotated any amount, even if the focus object isn't the
+Sun and the position being rotated to isn't the Ascendant. \[This does
+the same as the -1 switch.\]
 
 **3D Houses:** This option on the House Settings submenu toggles whether
 house placements are determined by 3D zodiac position and latitude
@@ -7399,25 +7789,30 @@ allowing one to set various things related to each aspect. For each of
 the 18 aspects, there is: (1) A checkbox for whether the aspect is to be
 included in charts at all, (2) an edit control specifying the aspect's
 maximum orb, (3) an edit control specifying the aspect's actual angle,
-and (4) an edit control specifying the aspect's relative power for
-influence charts. In addition there are three buttons: (1) "Restrict
-All" which automatically checks all aspects, (2) "Unrestrict All" which
+(4) an edit control specifying the aspect's relative power for influence
+charts, and (5) an control specifying the color to use when displaying
+the aspect. In addition there are three buttons: (1) "Restrict All"
+which automatically checks all aspects, (2) "Unrestrict All" which
 unchecks them all, and (3) "Toggle Majors" which inverts the status of
-the first five aspects. \[The checkboxes are a mixture of the -A and -RA
+the first five aspects. \[The checkboxes do the same as the -A and -RA
 switches. The orb fields do the same as the -Ao or - switches. The angle
 fields do the same as the -Aa switch. The influence fields do the same
-as the -YjA switch.\]
+as the -YjA switch. The color fields do the same as the -YkA switch.\]
 
 **Object Settings\...:** This brings up the Object Settings dialog,
 allowing one to set various things related to each planet. For each of
 the first 20 objects, there is: (1) an edit control specifying the
 maximum aspect orb allowed to that object, e.g. no more than a two
 degree orb to the North Node, (2) an edit control specifying an aspect
-orb addition allowed, e.g. widen all orbs by one degree for the Sun, and
-(3) an edit control specifying the object's relative power for influence
-charts. \[The max orb fields do the same as the -Am or -YAm switches.
-The orb addition fields do the same as the -Ad or -YAd switches. The
-influence fields do the same as the -Yj switch.\]
+orb addition allowed, e.g. widen all orbs by one degree for the Sun, (3)
+an edit control specifying the object's relative power for influence
+charts, and (4) an edit control specifying the color to use when
+displaying the object, which also allows selecting "Element" or "Ray" to
+become the colors of the element of the sign that the planet rules, or
+the Ray associated with the sign. \[The max orb fields do the same as
+the -Am or -YAm switches. The orb addition fields do the same as the -Ad
+or -YAd switches. The influence fields do the same as the -Yj switch.
+The color fields do the same as the -YkO switch.\]
 
 **More Object Settings\...:** This brings up a dialog much like the
 Object Settings dialog above, except this dialog is for the house cusp
@@ -7478,9 +7873,10 @@ objects. They are:
 
 \(1) A dropdown for the calculation method, which (depending on what's
 been compiled into the program) will allow one to calculate planet
-positions by one of four methods: Swiss Ephemeris, old and less accurate
-Placalc Ephemeris, very old and much less accurate Matrix formulas, or
-None \[same as --b, -bp, and -bm switches\]. When None is selected most
+positions by up to five different methods: Swiss Ephemeris, slightly
+less accurate Moshier ephemeris, old and less accurate Placalc
+ephemeris, very old and much less accurate Matrix formulas, or None
+\[same as -b, -bs, -bp, and -bm switches\]. When None is selected most
 objects will be placed at 0Aries, which of course isn't useful except
 for obscure testing scenarios.\
 (2) An edit control to specify the zodiac degree offset or ayanamsa
@@ -7513,7 +7909,13 @@ in astrology \[same as -sr switch\].\
 are shown \[same as the -YT switch\].\
 (11) A checkbox indicating whether topocentric positions relative to
 one's position on the surface of the Earth are shown \[same as -YV
-switch\].
+switch\].\
+(12) A checkbox indicating whether 3D houses are active, in which house
+position determination takes into account planetary latitude \[same as
+-c3 switch\].\
+(13) A checkbox indicating whether 3D aspects are active, in which
+aspect angle determination takes into account planetary latitude \[same
+as -A3 switch\].
 
 **Display Settings\...:** This brings up the Display Settings dialog,
 used to set various settings that affect cosmetic changes in chart
@@ -7534,35 +7936,38 @@ of text chart rows if they exceed the text columns setting \[same as -Y8
 switch\].\
 (7) Two checkboxes indicating whether to include sign and direction
 changes in transit to transit searches \[same as -YR0 switch\].\
-(8) A checkbox indicating whether to export text and print in an
+(8) An edit control indicating the "reverse restriction", or a required
+object that must be present in charts involving aspects between planets
+\[same as -RO switch\].\
+(9) A checkbox indicating whether to export text and print in an
 intuitive manner \[same as -YO switch\].\
-(9) A checkbox indicating whether to output chart info files in the old
+(10) A checkbox indicating whether to output chart info files in the old
 non-command switch format used before version 4.20 \[same as -Yo
 switch\].\
-(10) A checkbox indicating whether metafile and PostScript graphics
+(11) A checkbox indicating whether metafile and PostScript graphics
 files should use system as opposed to simulated fonts for glyphs and
 other characters \[same as -YXf switch\].\
-(11) Two edit controls specifying the horizontal and vertical paper size
+(12) Two edit controls specifying the horizontal and vertical paper size
 in inches to use in PostScript charts \[same as -YXp0 switch\]. Sizes
 may be specified in inches or centimeters. If the parameter ends in "cm"
 then it will be parsed as centimeters, and if it ends in "in" then it
 will be parsed as inches. If there's no units, then it will be parsed
 based on the distance display format setting above.\
-(12) A radio button group indicating how to orient the paper for
+(13) A radio button group indicating how to orient the paper for
 PostScript charts \[same as -YXp switch\].\
-(13) A radio button group specifying how to display zodiac positions,
+(14) A radio button group specifying how to display zodiac positions,
 i.e. in the standard degree/sign/minute notation, in hours/minutes, or
 just degrees \[these items correspond to the -sz, -sh, and -sd
 switches\].\
-(14) Five checkboxes to control whether standard rulerships, esoteric
+(15) Five checkboxes to control whether standard rulerships, esoteric
 rulerships, Hierarchical rulerships, exaltations, and Ray rulerships
 should appear in charts \[same as -YR7 switch\].\
-(15) Four checkboxes to control whether the events of rising, zenith
+(16) Four checkboxes to control whether the events of rising, zenith
 transit, setting, and nadir transit appear in the rising and setting
 chart \[same as -YRZ switch\].\
-(16) The number of aspects to include in charts \[same as the -A
+(17) The number of aspects to include in charts \[same as the -A
 switch\].\
-(17) The number of text columns to use in interpretation paragraphs
+(18) The number of text columns to use in interpretation paragraphs
 \[same as the parameter passed to the -I switch\].
 
 Chart menu commands:
@@ -7650,57 +8055,73 @@ as the -Zd switch.\]
 **Transits\...:** This brings up the Transits dialog, used to create
 various transit lists. The first thing to do when using this dialog is
 to set the type of chart desired in the "transit type" radio button
-group. The five choices here are (1) "transit to transit hits", which
-will display exact times of aspects and other events such as sign and
-direction changes over a range of time \[same as -d switch\], (2)
-"transit to transit influence", which will display all aspects between
-objects in the current chart ordered by significance \[same as -D
-switch\], (3) "transit to natal hits", which will display exact times of
-aspects made to natal planets from transiting planets over a range of
-time \[same as -t switch\], (4) "transit to natal influence", which will
-display all aspects between transiting and natal objects for a given
-time ordered by significance \[same as -T switch\], and (5) "none",
-which gets out of any transit chart mode. The second thing to do is to
-be aware of the "progress instead of transit" checkbox; when checked,
-all the transit charts will instead be progressed charts, i.e. the
-transit types will be (1) progressed to progressed hits \[same as -dp
-switch\], (2) progressed to progressed influence \[same as -D combined
-with -p\], (3) progressed to natal hits \[same as -tp switch\], and (4)
-progressed to natal influence \[same as -Tp switch\]. Another checkbox
-named "display returns only", will when checked affect the "transit to
-natal search" chart so that it only shows returns, and affect the
-"transit to natal influence" chart so that it only shows aspects between
-a transiting planet and the same natal planet \[same as the -tr and -Tr
-switches\]. Now, for the "transit to natal hits" and "transit to natal
-influence" charts, you should set the values in the "do transits for"
-combo control group (these controls are ignored for the transit to
-transit charts). There are controls for "month", "day", "year", and
-"time" like those in the Chart Info dialog, which here set the time for
-the transiting chart (the natal chart settings should of course be set
-in Chart Info). Pressing the "Now" button in the dialog will set these
-time values to be that of the current moment. In addition, for the
-"transit to transit hits" and "transit to natal hits" charts, you should
-select from the "search for hits over" radio button group appropriately
-(these controls are ignored for the transit influence charts). In this
-group one may choose to scan over a single day, a month, year, or range
-of years for aspects, where the time in question is that surrounding the
-natal chart set in the Chart Info dialog for "transit to transit hits",
-and is the time surrounding that in the "do transits for" group in this
-dialog for "transit to natal hits". You should note here that (1) when
-the "range of years" radio button is selected, the number of years to
-scan over may entered in the "years to span" edit control (with this
-setting being ignored otherwise), (2) the shortest period "transit to
-natal hits" may be done for is a single month, meaning that even if you
-select the "given day" radio button in combination with this chart
-you\'ll get the "given month", and (3) that some of the time settings in
-the "do transits for" group are effectively ignored when doing "transit
-to natal hits" over a large range, e.g. when doing the "given year", the
-values in the "month", "day", and "time" controls don\'t affect the
-chart any. Also for the two "hits" charts, you can change the value in
-the "searching divisions" edit control, which determines at how narrow
-intervals to cast charts for, with higher values giving more accurate
-times but taking longer to compute \[this is the same as the optional
-parameter passed to the -d switch\].
+group. The five choices here are:
+
+\(1) "Transit to transit times", which will display exact times of
+aspects and other events such as sign and direction changes over a range
+of time \[same as -d switch\].\
+(2) "Transit to transit influence", which will display all aspects
+between objects in the current chart ordered by significance \[same as
+-D switch\].\
+(3) "Transit to transit graph", which will for each aspect show a graph
+of its orb strength over a range of time \[same as -B switch\].\
+(4) "Transit to natal times", which will display exact times of aspects
+made to natal planets from transiting planets over a range of time
+\[same as -t switch\].\
+(5) "Transit to natal influence", which will display all aspects between
+transiting and natal objects for a given time ordered by significance
+\[same as -T switch\].\
+(6) "Transit to natal graph", which will for each transit to natal
+aspect show a graph of its orb strength over a range of time \[same as
+-V switch\].\
+(7) "None", which gets out of any transit chart mode.
+
+The second thing to do is to be aware of the "progress instead of
+transit" checkbox; when checked, all the transit charts will instead be
+progressed charts, i.e. the transit types will be:
+
+\(1) Progressed to progressed times \[same as -dp switch\].\
+(2) Progressed to progressed influence \[same as -D combined with -p\].\
+(3) Progressed to progressed graph \[same as -Bp switch\].\
+(4) Progressed to natal times \[same as -tp switch\].\
+(5) Progressed to natal influence \[same as -Tp switch\].\
+(6) Progressed to natal graph \[same as -Vp switch\].
+
+Another checkbox named "display returns only", will when checked affect
+the "transit to natal search" chart so that it only shows returns, and
+affect the "transit to natal influence" chart so that it only shows
+aspects between a transiting planet and the same natal planet \[same as
+the -tr, -Tr, and -Vr switches\]. Now, for the "transit to natal"
+charts, you should set the values in the "transit to natal info" combo
+control group (these controls are ignored for the transit to transit
+charts). There are controls for "month", "day", "year", and "time" like
+those in the Chart Info dialog, which here set the time for the
+transiting chart (the natal chart settings should of course be set in
+Chart Info). Pressing the "Now" button in the dialog will set these time
+values to be that of the current moment. In addition, for the "transit
+to transit/natal times" and "transit to transit/natal graph" charts, you
+should select from the "times and graph cover" radio button group
+appropriately (these controls are ignored for the transit influence
+charts). In this group one may choose to scan over a single day, a
+month, year, or range of years for aspects, where the time in question
+is that surrounding the natal chart set in the Chart Info dialog for
+"transit to transit times/graph", and is the time surrounding that in
+the "do transits for" group in this dialog for "transit to natal
+times/graph". You should note here that (1) when the "range of years"
+radio button is selected, the number of years to scan over may entered
+in the "years to span" edit control (with this setting being ignored
+otherwise), (2) the shortest period "transit to natal times" may be done
+for is a single month, meaning that even if you select the "given day"
+radio button in combination with this chart you\'ll get the "given
+month", and (3) that some of the time settings in the "do transits for"
+group are effectively ignored when doing "transit to natal times" over a
+large range, e.g. when doing the "given year", the values in the
+"month", "day", and "time" controls don\'t affect the chart any. Also
+for the two "times" charts, you can change the value in the "searching
+divisions" edit control, which determines at how narrow intervals to
+cast charts for, with higher values giving more accurate times but
+taking longer to compute \[this is the same as the optional parameter
+passed to the -d switch\].
 
 **Progressions\...:** This brings up the Progressions dialog, which as
 its name suggests allows one to do various forms of progressed charts.
@@ -7740,6 +8161,8 @@ objects in Western houses four through nine in reverse order \[same as
 (4) A checkbox indicating whether the text aspect grid lists all aspect
 configurations (e.g. Grand Trines) after the grid \[same as -g0
 switch\].\
+(5) A checkbox indicating whether the relationship aspect grid shows
+midpoints instead of aspects \[same as -gm switch\].\
 (5) A checkbox indicating whether the text aspect list also gives a
 summary of the number of aspects of each type and to each planet \[same
 as -a0 switch\].\
@@ -7779,22 +8202,28 @@ fixed star objects for charts such as the standard text listing \[same
 as the letter if any included with the -U switch\].\
 (17) A radio button group which determines in what order to sort the
 parts in the Arabic part chart \[same as the letter if any included with
-the -P switch\].
+the -P switch\].\
+(18) An edit control specifying the number of days covered by biorhythm
+charts \[same as -Yb command switch\].
 
 Graphics menu commands:
+
+**Show Chart Sphere:** This sets the current chart displayed to be a
+chart sphere, which is like a standard chart wheel but in 3D. \[This
+does the same as the -XX switch.\]
 
 **Show World Map:** This sets the current chart displayed to be a simple
 map of the world displayed in rectangular form. \[This does the same as
 the -XW switch.\]
 
 **Show Globe:** This sets the current display to be the map of the world
-shown as the side view of a globe. Note that this chart looks cool in
+shown as the side view of a globe. Note that this chart looks nice in
 animation mode because it rotates! \[This does the same as the -XG
 switch.\]
 
 **Show Polar Globe:** This sets the current display to be the map of the
-world shown as the top (or bottom) view of a globe. \[This does the same
-as the -XP switch.\]
+world shown in polar projection with the North (or South) pole in the
+center. \[This does the same as the -XP switch.\]
 
 **Show Constellations:** This toggles whether or not the three map
 displays above show in them the astronomical constellations instead of
@@ -7848,13 +8277,18 @@ new font; if you notice characters overlapping each other at small
 scales and the same size characters with lots of space between them at
 large scales, opening up a DOS prompt seems to fix the problem.
 
-**Globe Tilt:** This submenu allows one to change the angle or tilt of
-the Earth in the globe chart. The three menu options here are:
-"Decrease", which pulls the globe down 11.25 degrees or 1/8 of a
-quadrant; "Increase", which pulls the globe up 11.25 degrees; and "Set
-to Zero", which returns the globe to the standard zero degree angle with
-the equator edge on. \[This affects the same setting as the second
-optional parameter passed to the -XG switch.\]
+**Globe Tilt:** This submenu allows one to change the angle of rotation
+and tilt of the Earth in the globe charts. The first three menu options
+here are: "Tilt North", which pulls the globe down one degree (or rather
+a number of degrees equal to the animation jump factor); "Tilt South",
+which pulls the globe up one degree; and "Set to Zero", which returns
+the globe to the standard zero degree angle with the equator edge on.
+\[This affects the same setting as the second optional parameter passed
+to the -XG switch.\] The next two menu options are: "Rotate West", which
+rotates the globe to the right one degree (or rather a number of degrees
+equal to the animation jump factor); and "Rotate East", which rotates
+the globe to the left one degree. \[This affects the same setting as the
+first optional parameter to the -XG switch.\]
 
 **Modify Display:** This toggles whether or not each graphics chart is
 displayed in a slightly modified form, e.g. for the globe display this
@@ -7864,13 +8298,22 @@ the documentation for this switch in an earlier section for a list of
 how this setting affects each chart.\]
 
 **Modify Chart:** This option acts as a quick way to toggle several
-settings associated with certain charts. Specifically, if in wheel chart
-mode it will toggle between the standard wheel and the house emphasized
-wheel. In addition, it will toggle the "horizon chart displays with
-polar center" flag from the Chart Settings dialog, the "world map in
-Mollewide projection" flag from the Graphics Settings dialog, and
-whether ephemeris and calendar charts are displayed for the year instead
-of just the month.
+settings associated with certain charts. They are:
+
+\(1) For wheel charts, toggle between the standard wheel and the house
+emphasized wheel.\
+(2) For the relationship grid, toggle whether it shows midpoints instead
+of aspects.\
+(3) For the local horizon chart, toggle whether it displays with a polar
+center.\
+(4) For ephemeris and calendar charts, toggle whether they're displayed
+for the year instead of just the month.\
+(5) For transit graphs, toggle whether they show all aspects instead of
+restricting fast moving objects.\
+(6) For chart spheres and globe displays, toggle which hemisphere they
+focus upon.\
+(7) For the world map display, toggle whether it's shown in Mollewide
+projection.
 
 **Scribble Color:** This submenu allows one to select the color to use
 when using the mouse to draw on the window. It has sixteen options, one
@@ -7888,31 +8331,41 @@ percentages 100 through 400 \[same as -Xs switch\].\
 (3) An edit control specifying the scale size of text in graphics
 charts, with a dropdown allowing one to select from the four valid
 percentages 100 through 400 \[same as -XS switch\].\
-(4) An edit control specifying the horizontal and vertical number of
-cells to have in the graphic aspect grid chart \[same as -YXg switch\].\
-(5) An edit control specifying the rotation in degrees for the globe and
+(4) A checkbox indicating whether charts that look best square should
+always be drawn square, even in rectangular windows \[same as the -XQ
+switch\].\
+(5) An edit control specifying the horizontal and vertical number of
+cells to have in the graphic aspect grid chart, which may be zero to
+have the size automatically determined \[same as -YXg switch\].\
+(6) An edit control specifying the rotation in degrees for the globe and
 world map charts \[same as the first optional parameter passed to the
 -XG switch\].\
-(6) An edit control specifying the angular tilt in degrees for the globe
+(7) An edit control specifying the angular tilt in degrees for the globe
 chart \[same as the second optional parameter passed to the -XG
 switch\].\
-(7) A checkbox indicating whether to display the world map chart in the
+(8) A checkbox indicating whether to display the world map chart in the
 oval shaped Mollewide projection as opposed to just in rectangular form
 \[same as -XW0 switch\].\
-(8) An edit control specifying the time to delay between doing screen
+(9) An edit control specifying the time to delay between doing screen
 updates when in animation mode \[same as the -WN switch\].\
-(9) A checkbox indicating whether the graphics screen doesn\'t
+(10) A checkbox indicating whether animation mode affects the
+orientation of map displays, instead of the time of the chart within the
+map \[same as the -XN switch\].\
+(11) A checkbox indicating whether the graphics screen doesn\'t
 automatically update after setting changes or window expose events,
 requiring the user to manually force redraws \[same as the -Wn
 switch\].\
-(10) A radio button group specifying the "wheel chart rotation", i.e.
+(12) A radio button group specifying the "wheel chart rotation", i.e.
 whether to rotate the entire wheel so an object is at the left edge or
 at the top edge of the chart, and an edit control specifying which
 object to use when active \[all this does the same as the -X1 and -X2
 switches\].\
-(11) Four radio button pairs allowing one to select between different
+(13) Four radio button pairs allowing one to select between different
 glyphs to use for Capricorn, Uranus, Pluto, and Lilith \[same as -YXG
-switch\].
+switch\].\
+(14) A radio button group allowing one to select the decoration for the
+corners of wheel charts, along with an edit control for how much of the
+image to cover with it \[same as the -YXv switch\].
 
 Animate menu commands:
 
@@ -8113,57 +8566,62 @@ Astrolog on VMS, which should work for the current version, although you
 might need to include "/noopt" after the CC's since some compilers may
 cause the program to pass parameters incorrectly with optimization on.
 
-Compiling Astrolog on a PC for DOS is easy too. One can usually do it by
-simply compiling each file in turn and then linking them all together.
-In some cases you don\'t have to worry about explicitly mentioning
-things like the math library if your environments are set up properly. I
-used the command line version of the Microsoft Visual C 1.51 compiler
-and its graphics.lib library to generate the ready to run PC executable
-for previous versions. If you have the nmake utility, the makefile.dos
-file included in the zip archive will nicely compile and link Astrolog
-on a PC, with properly set options and all. The default directory for
-chart info files, the astrolog.as file, and the ephemeris files in the
-official PC executable are all set to C:\\ASTROLOG, although this
-location will be overridden with several environment variables if set.
-The time and location defaults are set to my own area, but you can
-easily override them with your own values in the astrolog.as file.
-
 To compile the Astrolog source code for Windows, the \#define WIN
 compile time flag needs to be uncommented in astrolog.h (this should of
 course be commented out for all other platforms). In addition, the PC
 flag should be uncommented, while the flags for other graphics libraries
 like X11 should be commented out. Pretty much all of the features in the
-features section should be on, e.g. INTERPRET, as well as some of the
-system settings like TIME and MOUSE, because there are menu options that
-deal with them that won\'t automatically disappear if they're disabled.
-The included file Astrolog.vcproj may be used as a project file or
-makefile. The "official" Windows executable was compiled as a 32 bit
-application using Microsoft Visual Studio 2005. Ensure "Project /
-Astrolog Properties / Configuration Properties / Linker / System /
-Subsystem" is set to "Windows (/SUBSYSTEM:WINDOWS)" so it will be
-compiled as a Windows program. Also manually add shlwapi.lib to the
-"Project / Astrolog Properties / Configuration Properties / Linker /
-Command Line / Additional Options" area, because it may not be
+features section should be on, such as INTERPRET, as well as some of the
+system settings like TIME, because there are menu options that deal with
+them that won\'t automatically disappear if they're disabled. The
+included file Astrolog.vcproj may be used as a project file or makefile.
+Ensure "Project / Astrolog Properties / Configuration Properties /
+Linker / System / Subsystem" is set to "Windows (/SUBSYSTEM:WINDOWS)" so
+it will be compiled as a Windows program. Also manually add shlwapi.lib
+to the "Project / Astrolog Properties / Configuration Properties /
+Linker / Command Line / Additional Options" area, because it may not be
 automatically detected based on \#include files. If you want the C
 runtime to be statically linked instead of requiring the right runtime
 DLL to be present, then set "Project / Astrolog Properties /
 Configuration Properties / C/C++ / Code Generation / Runtime Library" to
-"Multi-threaded (/MT)" instead of "Multi-threaded DLL (/MD)". Other
-Windows compilers should work, provided they have a resource compiler
-which understands the standard .rc extension resources for menus and
-dialogs.
+"Multi-threaded (/MT)" instead of "Multi-threaded DLL (/MD)". The
+standard Windows executable was compiled as a 32 bit application using
+Microsoft Visual Studio 2005. Other Windows compilers should work,
+provided they have a resource compiler which understands the standard
+.rc extension resources for menus and dialogs. Astrolog's source code
+can compile 64 bit instances of the Windows version too. The Windows
+About dialog and the -Hc switch display will indicate whether a 32 or 64
+bit version of the program is running. Internally, the sources look for
+the compiler set \#define \_WIN64 to indicate 64 bit specific content.
+
+To compile a command line only interface (CLI) version of Astrolog on
+Windows, turn off WIN in astrolog.h before compiling. Also in "Project /
+Astrolog Properties / Configuration Properties / Linker / System", set
+Subsystem to "Console" (instead of "Windows" which starts with the
+standard Windows GUI).
+
+The command line only version of Astrolog on Windows can also bring up a
+generic window with the -X switch, when the WCLI \#define is uncommented
+when compiling. This is different from the standard Windows version
+(which is a full windowed program and not a command line program). The
+WCLI window won't have a menu bar, but it will still accept keypresses.
+It's basically a Windows version of the X11 and Mac graphics versions,
+just compiled for Windows instead of those alternate platforms. The WCLI
+version is more limited, but useful for testing the generic window
+source code of the program without having to go to different platforms.
 
 \--
 
 Astrolog is officially supported and runs on the Mac. The ready to run
-Mac executable for version 5.40 was distributed in a BinHex 4.0\'ed self
-extracting archive. To unpack it, use a utility that can un-BinHex such
-files to generate the self extracting archive, and then double click the
-archive program to unpack the executable, documentation, and other such
-files. I used CompactPro 1.34 to create the Mac archive, a useful
-utility that can also BinHex and un-BinHex files. The executable should
-run on most any 68K processor Mac, and will run on PowerMacs in
-emulation mode. It requires 750K of heap to run, with 1.5M preferred.
+Mac executable for versions 5.40 and before were distributed in a BinHex
+4.0\'ed self extracting archive. To unpack it, use a utility that can
+un-BinHex such files to generate the self extracting archive, and then
+double click the archive program to unpack the executable,
+documentation, and other such files. I used CompactPro 1.34 to create
+the Mac archive, a useful utility that can also BinHex and un-BinHex
+files. The executable should run on most any 68K processor Mac, and will
+run on PowerMacs in emulation mode. It requires 750K of heap to run,
+with 1.5M preferred.
 
 The Mac Astrolog executable has the same icon as the PC version, a
 ringed planet with tilted red rings and surrounding stars, except the
@@ -8195,12 +8653,12 @@ colored text.
 Astrolog's source code can be compiled and run on the Macintosh
 perfectly with no special modifications needed. In making the official
 Mac executable for version 5.40, I used the compiler Symantec C/C++ 7.0
-for the Mac. When compiling, uncomment the "MAC" compile time option in
-astrolog.h, turn on the "far data" flag in the compiler, and make sure
-the ANSI library is set to be loaded. Other Astrolog compile time option
-settings should be SWITCHES off, ENVIRON off, and PROTO off. For Mac
-graphics, uncomment the "MACG" compile time setting in astrolog.h, and
-make sure the MacTraps library is set to be loaded.
+for the Mac. When compiling, uncomment the "MACOLD" compile time option
+in astrolog.h, turn on the "far data" flag in the compiler, and make
+sure the ANSI library is set to be loaded. Other Astrolog compile time
+option settings should be SWITCHES off, ENVIRON off, and PROTO off. For
+Mac graphics, uncomment the "MACG" compile time setting in astrolog.h,
+and make sure the MacTraps library is set to be loaded.
 
 The Mac version of Astrolog also supports on-screen graphics, in
 addition to the ability to create graphic bitmap, metafile, and
@@ -8208,18 +8666,18 @@ PostScript files on disk which may be viewed in another program. The -X
 switch will bring up a separate window with the appropriate wheel or
 whatever other chart displayed in it, and can press keys while the
 window is up to change or alter the display. This makes the Mac version
-more or less equivalent in functionality to the DOS and X Windows
-versions, although a few things such as mouse scribbles on the screen
-and flicker free updates aren\'t available. In the source code, there's
-a compile time option in the astrolog.h file called MACG. When set, it
-will compile in the Mac screen graphics. When commented out, it will be
-like before. The MACG define is like the X11 compile time variable which
+more or less equivalent in functionality to the X Windows version,
+although a few things such as mouse scribbles on the screen and flicker
+free updates aren\'t available. In the source code, there's a compile
+time option in the astrolog.h file called MACG. When set, it will
+compile in the Mac screen graphics. When commented out, it will be like
+before. The MACG define is like the X11 compile time variable which
 turns on screen graphics for a different platform.
 
 ASTROLOG HISTORY {#astrolog-history .Section}
 ================
 
-This is a comprehensive history list of the 28 versions of Astrolog that
+This is a comprehensive history list of the 29 versions of Astrolog that
 have been released since its beginning. Below is a listing of all
 versions of Astrolog that have been released, after which for each
 version, is listed the description of the new features and changes added
@@ -8227,51 +8685,51 @@ to that version.
 
 **Num Vers. Release Date Features added to version**
 
-1 1.00 Wed 11 Sep 91 00:00:38 GMT Initial planet calculations
+1 1.00 Wed 11 Sep 91 0:00:38 GMT Initial planet calculations
 
-2 1.10 Sat 14 Sep 91 00:02:16 GMT Aspects, different house systems
+2 1.10 Sat 14 Sep 91 0:02:16 GMT Aspects, different house systems
 
 3 1.20 Fri 20 Sep 91 23:56:55 GMT File input, wheels, relationships
 
-4 1.30 Wed 9 Oct 91 03:17:04 GMT Transits, searches, astro-graphy
+4 1.30 Wed 9 Oct 91 3:17:04 GMT Transits, searches, astro-graphy
 
-5 1.40 Tue 12 Nov 91 01:18:13 GMT Restrictions, other conveniences
+5 1.40 Tue 12 Nov 91 1:18:13 GMT Restrictions, other conveniences
 
-6 2.00 Wed 11 Dec 91 07:11:25 GMT X charts, multiple source files
+6 2.00 Wed 11 Dec 91 7:11:25 GMT X charts, multiple source files
 
-7 2.10 Tue 18 Feb 92 07:59:03 GMT Color, more X charts, local space,
-more progression and file support
+7 2.10 Tue 18 Feb 92 7:59:03 GMT Color, more X charts, local space, more
+progression and file support
 
-8 2.20 Wed 3 Jun 92 00:25:40 GMT Stars, space charts, influences,
-default settings, more relationships
+8 2.20 Wed 3 Jun 92 0:25:40 GMT Stars, space charts, influences, default
+settings, more relationships
 
 9 2.25 Thu 18 Jun 92 18:54:43 GMT Bug fixes over v2.20
 
-10 2.30 Fri 12 Sep 92 01:20:42 GMT Interpretations, comments
+10 2.30 Fri 12 Sep 92 1:20:42 GMT Interpretations, source code comments
 
-11 2.40 Wed 20 Jan 93 03:23:16 GMT Ansi text color, midpoint lists
+11 2.40 Wed 20 Jan 93 3:23:16 GMT Ansi text color, midpoint lists
 
 12 3.00 Sun 21 Mar 93 12:22:27 GMT PC Graphics, more interpretations
 
 13 3.05 Thu 20 May 93 23:40:00 GMT Bug fixes over v3.00
 
-14 3.10 Sun 26 Sep 93 08:29:58 GMT Transit influences, efficiency
+14 3.10 Sun 26 Sep 93 8:29:58 GMT Transit influences, efficiency
 
 15 4.00 Wed 5 Jan 94 10:22:11 GMT Placalc ephemeris, PostScript,
 metafiles, better wheel charts
 
 16 4.10 Mon 21 Mar 94 10:58:54 GMT Improvements, bug fixes over v4.00
 
-17 4.20 Fri 23 Sep 94 07:19:01 GMT New files, constellations, macros,
-new objects, dispositors
+17 4.20 Fri 23 Sep 94 7:19:01 GMT New files, constellations, macros, new
+objects, dispositors
 
-18 4.30 Mon 28 Nov 94 09:35:33 GMT Parallel aspects, bug fixes
+18 4.30 Mon 28 Nov 94 9:35:33 GMT Parallel aspects, bug fixes
 
-19 4.40 Sun 12 Feb 95 04:28:11 GMT Macintosh support, Arabic parts
+19 4.40 Sun 12 Feb 95 4:28:11 GMT Macintosh support, Arabic parts
 
 20 5.00 Mon 24 Jul 95 10:55:53 GMT Windows interface, asteroid ephemeris
 
-21 5.05 Sun 20 Aug 95 09:29:49 GMT Bug fixes over v5.00
+21 5.05 Sun 20 Aug 95 9:29:49 GMT Bug fixes over v5.00
 
 22 5.10 Sun 31 Dec 95 11:56:00 GMT Chart printing, setting saving
 
@@ -8281,13 +8739,16 @@ new objects, dispositors
 
 25 5.40 Thu 24 Dec 98 14:22:00 GMT Vedic style charts
 
-26 6.00 Mon 22 Dec 15 04:47:57 GMT Swiss Ephemeris planets, esoteric
+26 6.00 Mon 22 Dec 15 4:47:57 GMT Swiss Ephemeris planets, esoteric
 astrology, GNU license
 
-27 6.10 Sun 20 Mar 16 04:30:12 GMT Swiss Ephemeris houses, true and
+27 6.10 Sun 20 Mar 16 4:30:12 GMT Swiss Ephemeris houses, true and
 topocentric positions
 
 28 6.20 Mon 20 Mar 17 10:28:39 GMT 3D houses, bug fixes
+
+29 6.30 Mon 23 Oct 17 5:26:42 GMT Chart spheres, transit graphs, Swiss
+Ephemeris stars
 
 All of the above versions of Astrolog except 2.25, 3.05, and 5.05 and
 those after it, were posted in direct source file, shell archive, and/or
@@ -8347,7 +8808,7 @@ O\*O\*O\*O\*O\*O\*O\*O\*O\*O\*O\*O\*O\*O\*O\*O\*O\*O\*O\*O\*O\*O\*O\*O\*O\*O\*O\
 
 \* Walter D. \"Cruiser1\" Pullen :) ! <Astara@msn.com> \*
 
-O Astrolog 6.20 homepage:
+O Astrolog 6.30 homepage:
 <http://www.magitech.com/astrolog/astrolog.htm> O
 
 \* \"Who am I, What am I? As I am, I am not. But as we are, I AM. And to
